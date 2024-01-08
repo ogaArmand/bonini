@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+
+<!DOCTYPE html>
 <html lang="fr-FR">
 	<head>
 		<meta
@@ -10,41 +12,41 @@
 			content="Helix Ultimate - The Most Popular Joomla! Template Framework." />
 		<title>Reservation</title>
 		<link
-			href="../static/assets/images/logo bonini.jpg"
+			href="{% static 'assets/images/logo bonini.jpg' %}"
 			rel="icon"/>
 		<link
-			href="../static/assets/css/font-awesome-5.min.css?62670cd6c46dc9fd1c3fe85280142dff"
+			href="{% static 'assets/css/font-awesome-5.min.css' %}"
 			rel="stylesheet" />
 		<link
-			href="../static/assets/css/font-awesome-v4-shims.css?62670cd6c46dc9fd1c3fe85280142dff"
+			href="{% static 'assets/css/font-awesome-v4-shims.css' %}"
 			rel="stylesheet" />
 		<link
-			href="../static/assets/css/animate.min.css?62670cd6c46dc9fd1c3fe85280142dff"
+			href="{% static 'assets/css/animate.min.css' %}"
 			rel="stylesheet" />
 		<link
-			href="../static/assets/css/sppagebuilder.css?62670cd6c46dc9fd1c3fe85280142dff"
+			href="{% static 'assets/css/sppagebuilder.css' %}"
 			rel="stylesheet" />
 		<link
-			href="../static/assets/css/magnific-popup.css"
+			href="{% static 'assets/css/magnific-popup.css' %}"
 			rel="stylesheet" />
 		<link
-			href="../static/assets/css/bootstrap.min.css"
+			href="{% static 'assets/css/bootstrap.min.css' %}"
 			rel="stylesheet" />
-		<link href="../static/assets/css/template.css" rel="stylesheet" />
+		<link href="{% static 'assets/css/template.css' %}" rel="stylesheet" />
 		<link
-			href="../static/assets/css/presets/preset9.css"
+			href="{% static 'assets/css/presets/preset9.css' %}"
 			rel="stylesheet" />
-		<link href="../static/assets/css/custom.css" rel="stylesheet" />
-		<script src="../static/assets/js/common.js"></script>
+		<link href="{% static 'assets/css/custom.css' %}" rel="stylesheet" />
+		<script src="{% static 'assets/js/common.js' %}"></script>
 		<script
-			src="../static/assets/js/jquery.parallax.js?62670cd6c46dc9fd1c3fe85280142dff"></script>
+			src="{% static 'assets/js/jquery.parallax.js' %}"></script>
 		<script
-			src="../static/assets/js/sppagebuilder.js?62670cd6c46dc9fd1c3fe85280142dff"
+			src="{% static 'assets/js/sppagebuilder.js' %}"
 			defer></script>
 		<script
-			src="../static/assets/js/jquery.magnific-popup.min.js"></script>
-		<script src="../static/assets/js/gmap.js"></script>
-		<script src="../static/assets/js/main.js"></script>
+			src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static 'assets/js/gmap.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
 
 		<meta property="article:author" content="Bonini" />
 		<meta property="og:locale" content="fr-FR" />
@@ -63,8 +65,8 @@
 										<a href="#">
 											<img
 												class="logo-image mx-auto"
-												srcset="../static/assets/images/logo bonini.jpg 1x"
-												src="../static/assets/images/logo bonini.jpg"
+												srcset="{% static 'assets/images/logo bonini.jpg 1x' %}"
+												src="{% static 'assets/images/logo bonini.jpg' %}"
 												alt="Bonini" />
 										</a>
 									</div>
@@ -285,7 +287,7 @@
 																																		class="fa"
 																																		aria-hidden="true"></i><span
 																																		class="sb-icon"><img
-																																			src="../static/assets/images/arrow.svg" /></span>Valider
+																																			src="{% static 'assets/images/arrow.svg' %}" /></span>Valider
 																																</button>
 																															</div>
 																														</form>
