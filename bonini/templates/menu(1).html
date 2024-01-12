@@ -1,0 +1,652 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta charset="utf-8" />
+    <title>Menu</title>
+    <link href="{% static 'assets/images/logo bonini.jpg' %}" rel="icon" />
+    <link
+      href="{% static 'assets/css/font-awesome-5.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/css/font-awesome-v4-shims.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'assets/css/animate.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/sppagebuilder.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'assets/css/magnific-popup.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/template.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'assets/css/presets/preset9.css' %}"
+      rel="stylesheet"
+    />
+
+    
+    <link href="{% static 'assets/css/custom.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/hikashop.css' %}" rel="stylesheet" />
+
+    <meta property="article:author" content="Bonini" />
+    <meta property="og:locale" content="fr-FR" />
+    <meta property="og:title" content="Formulaire d'inscription" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body
+    class="site helix-ultimate hu com_sppagebuilder com-sppagebuilder view-page layout-default task-none itemid-141 en-gb ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right"
+  >
+    <div class="body-wrapper">
+      <div class="body-innerwrapper">
+        <header id="sp-header">
+					<div class="container">
+						<div class="container-inner">
+						<div class="row py-3">
+							<div
+							id="sp-logo"
+							class="col-4 col-sm-4 col-md-4 col-lg-3 col-xxl-3 col-xl-3"
+							>
+							<div class="sp-column d-flex align-items-center">
+								<div class="logo">
+								<a href="#">
+									<img
+									class="logo-image"
+									srcset="{% static 'assets/images/logobonini.jpg' %}"
+									src="{% static 'assets/images/logobonini.jpg' %}"
+									alt="Bonini"
+									/>
+								</a>
+								</div>
+							</div>
+							</div>
+							<div
+							id="sp-menu"
+							class="col-5 col-sm-6 col-md-7 col-lg-7 col-xxl-6 col-xl-6"
+							>
+							<div class="sp-column d-flex align-items-center justify-content-end">
+							</div>
+							</div>
+							<div
+							id="sp-position1"
+							class="col-3 col-sm-2 col-md-1 col-lg-2 col-xxl-3 col-xl-3"
+							>
+							<div class="sp-column d-flex align-items-center">
+								<div class="sp-module">
+								<div class="sp-module-content">
+									<div
+									class="mod-sppagebuilder sp-page-builder"
+									data-module_id="126"
+									>
+									<div class="page-content">
+										<section
+										id="section-id-6e10dbd7-55a2-4539-9422-05be16439eaa"
+										class="sppb-section"
+										>
+										<div class="sppb-row-container">
+											<div class="sppb-row">
+											<div
+												class="sppb-row-column"
+												id="column-wrap-id-a56ca86f-21aa-4f02-a76e-dd02632eda0b"
+											>
+												<div
+												id="column-id-a56ca86f-21aa-4f02-a76e-dd02632eda0b"
+												class="sppb-column"
+												>
+												<div class="sppb-column-addons">
+													<div
+													id="sppb-addon-wrapper-b4c7ba74-780f-425d-882f-cb267bb07e34"
+													class="sppb-addon-wrapper"
+													>
+													<div
+														id="sppb-addon-b4c7ba74-780f-425d-882f-cb267bb07e34"
+														class="sppb-div-addon"
+														data-sppb-wow-duration="300ms"
+													>
+														<div
+														id="sppb-addon-wrapper-931d47c3-7031-4aa5-940d-d7a00a4c871a"
+														class="sppb-addon-wrapper addon-root-module"
+														>
+														<div
+															id="sppb-addon-931d47c3-7031-4aa5-940d-d7a00a4c871a"
+															class="clearfix"
+														>
+															<div
+															class="sppb-addon sppb-addon-module"
+															>
+															<div class="sppb-addon-content d-flex justify-content-end">
+																<div
+																class="hikashop_cart_module"
+																id="hikashop_cart_module"
+																>
+																<div
+																	id="hikashop_cart_125"
+																	class="hikashop_cart hika_j4"
+																>
+																	<div
+																	class="hikashop_checkout_loading_elem"
+																	></div>
+																	<div
+																	class="hikashop_checkout_loading_spinner small_spinner small_cart"
+																	></div>
+																</div>
+																<div class="clear_both"></div>
+																<span class="sb-icon position-relative">
+                                  <a href="{% url 'ouvrirpanier' %}">
+                                    <img src="{% static 'assets/images/cart.svg' %}" alt="icon"/>
+                                    <span id="taillePanier" class="position-absolute">{{ panier|length }}</span>
+                                    </a>
+                                </span>
+																</div>
+															</div>
+															</div>
+														</div>
+														</div>
+													</div>
+													</div>
+												</div>
+												</div>
+											</div>
+											</div>
+										</div>
+										</section>
+									</div>
+									</div>
+								</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					</header>
+        <section id="sp-section-2">
+          <div class="row">
+            <div id="sp-title" class="bg-menu col-lg-12">
+              <div class="sp-column">
+                <div class="sp-page-title">
+                  <div class="container">
+                    <h2 class="sp-page-title-heading">Bonini Menu</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="sp-main-body">
+          <div class="container">
+            <div class="container-inner">
+              <div class="row">
+                <div
+                  id="sppb-addon-3a2a0397-90b7-4451-a73e-e45d2d0a473c"
+                  class="clearfix mt-5"
+                >
+                  <div class="sppb-addon sppb-addon-text-block">
+                    <div>
+                      <div>
+                        <div class="sppb-addon-content">
+                          <p class="mb-5">
+                            Votre code promo est :
+                            <span class="text-primary"
+                              ><strong>{{ promo_code }}</strong></span
+                            >. Avec ce code, vous bénéficiez d'une reduction de
+                            20 % sur tous vos achats au restaurant CAFE BONINI.
+                          </p>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between align-items-center"
+                        >
+                          <h2 class="sppb-addon-title">Liste des repas</h2>
+                          <div class="sppb-addon-content">
+                            <button
+                              type="button"
+                              class="sppb-btn sppb-btn-primary sppb-btn-rounded ps-4"
+                            >
+                              <i class="fa fa-download" aria-hidden="true"></i>
+                              <span class="ms-2"
+                                >T&eacute;l&eacute;charger le menu</span
+                              >
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+                <main id="sp-component" class="col-lg-12 mt-2">
+                  <div class="sp-column">
+                    <div id="system-message-container" aria-live="polite"></div>
+
+                    <div
+                      id="hikashop_category_information_menu_173"
+                      class="hikashop_category_information hikashop_products_listing_main hikashop_product_listing_2 hika_j4 filter_refresh_div"
+                    >
+                      <div class="hikashop_checkout_loading_elem"></div>
+                      <div class="hikashop_checkout_loading_spinner"></div>
+                      <div class="hikashop_products_listing">
+                        <div
+                          id="hikashop_products_switcher_hikashop_category_information_menu_173"
+                          class="hikashop_products"
+                          data-consistencyheight=".hikashop_subcontainer"
+                          itemscope
+                          itemtype="https://schema.org/itemListElement"
+                        >
+                          <div class="hk-row-fluid">
+                            {% for menu in menus %}
+                            <div
+                              class="hkc-md-3 hikashop_product hikashop_product_column_1 hikashop_product_row_1"
+                              itemprop="itemList"
+                              itemscope
+                              itemtype="http://schema.org/ItemList"
+                            >
+                              <div class="hikashop_container">
+                                <div class="hikashop_subcontainer">
+                                  <div
+                                    class="hikashop_listing_img_title"
+                                    id="div_hikashop_category_information_menu_173_1"
+                                  >
+                                    <!-- IMAGE -->
+                                    <div class="hikashop_product_image">
+                                      <div
+                                        class="hikashop_product_image_subdiv"
+                                      >
+                                        <a href="#" class>
+                                          <img
+                                            class="hikashop_product_listing_image"
+                                            title="Chevrefrit au miel"
+                                            alt="Chevrefrit au miel"
+                                            src="{{ menu.image.url }}"
+                                          />
+                                        </a>
+                                      </div>
+                                    </div>
+                                    <!-- EO IMAGE -->
+
+                                    <div class="content">
+                                      <!-- VOTE -->
+                                      <!-- EO VOTE -->
+                                      <div class="sb-card-tp">
+                                        <!-- NAME -->
+                                        <span class="hikashop_product_name">
+                                          <a href="#" class>
+                                            {{ menu.libelle }}</a
+                                          >
+                                        </span>
+                                        <!-- EO NAME -->
+
+                                        <!-- PRICE -->
+                                        <span
+                                          class="hikashop_product_price_full text-white"
+                                        >
+                                          <span class="me-2"
+                                            >{{ menu.prix }}</span
+                                          >
+                                          <sup>FCFA</sup>
+                                        </span>
+                                        <!-- EO PRICE -->
+                                      </div>
+
+                                      <!-- CHARACTERISTIC AVAILABLE VALUES -->
+                                      <!-- EO CHARACTERISTIC AVAILABLE VALUES -->
+                                      <!-- CUSTOM PRODUCT FIELDS -->
+                                      <!-- EO CUSTOM PRODUCT FIELDS -->
+
+                                      <!-- AFTER PRODUCT NAME AREA -->
+                                      <!-- EO AFTER PRODUCT NAME AREA -->
+
+                                      <div class="sb-card-buttons-frame">
+                                        <!-- ADD TO CART BUTTON -->
+                                        <!-- SALE END MESSAGE -->
+                                        <!-- EO SALE END MESSAGE -->
+                                        <!-- SALE START MESSAGE -->
+                                        <!-- EO SALE START MESSAGE -->
+                                        <!-- STOCK MESSAGE -->
+                                        <span
+                                          class="hikashop_product_stock_count"
+                                        >
+                                        </span>
+                                        <!-- EO STOCK MESSAGE -->
+                                        <!-- WAITLIST BUTTON -->
+                                        <!-- EO WAITLIST BUTTON -->
+
+                                        <!-- ADD TO CART BUTTON -->
+                                        <button
+                                          onclick='ajouterAuPanier("{{ menu.id }}","{{ menu.libelle }}","{{ menu.prix }}","{{ menu.image.url }}")' type="button" class="sppb-btn sppb-btn-primary hikacart">
+                                          <span>Ajouter au panier</span>
+                                        </button>
+                                        <!-- EO ADD TO CART BUTTON -->
+                                        <!-- WISHLIST BUTTON -->
+                                        <!-- EO WISHLIST BUTTON -->
+                                        <!-- CHOOSE OPTIONS BUTTON -->
+                                        <!-- EO CHOOSE OPTIONS BUTTON -->
+                                        <!-- EO ADD TO CART BUTTON -->
+                                      </div>
+
+                                      <!-- COMPARISON -->
+                                      <!-- EO COMPARISON -->
+
+                                      <!-- CONTACT US BUTTON -->
+
+                                      <!-- EO CONTACT US BUTTON -->
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            {% endfor %}
+                          </div>
+                          <div style="clear: both"></div>
+                        </div>
+                        <form
+                          action="https://starbelly.windstripedesign.ro/shop/shop-list-1"
+                          method="post"
+                          name="adminForm_hikashop_category_information_menu_173_2_bottom"
+                        >
+                          <div
+                            class="hikashop_products_pagination hikashop_products_pagination_bottom"
+                          >
+                            <div
+                              class="list-footer pagination pagination-toolbar clearfix"
+                            >
+                              <div class="limit">
+                                Display #<select
+                                  id="limit"
+                                  name="limit"
+                                  class="chzn-done form-select hikashop_pagination_dropdown"
+                                  size="1"
+                                  onchange="this.form.submit()"
+                                >
+                                  <option value="16" selected="selected">
+                                    16
+                                  </option>
+                                  <option value="32">32</option>
+                                  <option value="48">48</option>
+                                  <option value="64">64</option>
+                                  <option value="80">80</option>
+                                  <option value="0">all</option>
+                                </select>
+                              </div>
+                              <div class="counter"></div>
+                              <input
+                                type="hidden"
+                                name="limitstart"
+                                value="0"
+                              />
+                            </div>
+                            <span class="hikashop_results_counter">
+                              R&eacute;sultats 1 - 16 sur 16</span
+                            >
+                          </div>
+                          <input
+                            type="hidden"
+                            name="filter_order_hikashop_category_information_menu_173_2"
+                            value="a.ordering"
+                          />
+                          <input
+                            type="hidden"
+                            name="filter_order_Dir_hikashop_category_information_menu_173_2"
+                            value="ASC"
+                          />
+                          <input
+                            type="hidden"
+                            name="lscache_formtoken"
+                            value="1"
+                          />
+                        </form>
+                      </div>
+
+                      <!-- BOTTOM EXTRA DATA -->
+                      <!-- EO BOTTOM EXTRA DATA -->
+                    </div>
+                  </div>
+                </main>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer id="sp-footer">
+          <div class="row">
+            <div id="sp-footer1" class="col-lg-12">
+              <div class="sp-column">
+                <div class="sp-module">
+                  <div class="sp-module-content">
+                    <div
+                      class="mod-sppagebuilder sp-page-builder"
+                      data-module_id="124"
+                    >
+                      <div class="page-content">
+                        <section
+                          id="section-id-104e2e5e-eea1-4284-b734-116a98b8f1f9"
+                          class="sppb-section sppb-section-content-center"
+                        >
+                          <div class="sppb-row-container">
+                            <div class="sppb-row sppb-align-center">
+                              <div
+                                class="sppb-row-column"
+                                id="column-wrap-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
+                              >
+                                <div
+                                  id="column-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
+                                  class="sppb-column"
+                                >
+                                  <div class="sppb-column-addons">
+                                    <div
+                                      id="sppb-addon-wrapper-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+                                      class="sppb-addon-wrapper addon-root-image"
+                                    >
+                                      <div
+                                        id="sppb-addon-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+                                        class="clearfix"
+                                      >
+                                        <div
+                                          class="sppb-addon sppb-addon-single-image"
+                                        >
+                                          <div class="sppb-addon-content">
+                                            <div
+                                              class="sppb-addon-single-image-container"
+                                            >
+                                              <a href="../index.htm"
+                                                ><img
+                                                  class="sppb-img-responsive logo-image"
+                                                  src="{% static 'assets/images/logobonini.jpg' %}"
+                                                  alt="Image"
+                                                  title
+                                              /></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="sppb-row-column"
+                                id="column-wrap-id-f7e87639-0f29-440f-aed0-30942735eeb1"
+                              >
+                                <div
+                                  id="column-id-f7e87639-0f29-440f-aed0-30942735eeb1"
+                                  class="sppb-column"
+                                >
+                                  <div class="sppb-column-addons">
+                                    <div
+                                      id="sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d"
+                                      class="sppb-addon-wrapper addon-root-raw-html"
+                                    >
+                                      <div
+                                        id="sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d"
+                                        class="clearfix"
+                                      >
+                                        <div
+                                          class="sppb-addon sppb-addon-raw-html"
+                                        >
+                                          <div class="sppb-addon-content">
+                                            <ul class="sb-social">
+                                              <li>
+                                                <a
+                                                  href="https://www.instagram.com/caffeboniniabidjan?igsh=MW9ldTBxZjZ1N24ydw=="
+                                                  target="_blank"
+                                                  ><i
+                                                    class="fab fa-instagram"
+                                                  ></i
+                                                ></a>
+                                              </li>
+                                              <li>
+                                                <a
+                                                  href="https://www.facebook.com/caffeboniniabidjan?mibextid=ZbWKwL"
+                                                  target="_blank"
+                                                  ><i
+                                                    class="fab fa-facebook-f"
+                                                  ></i
+                                                ></a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="sppb-row-column"
+                                id="column-wrap-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
+                              >
+                                <div
+                                  id="column-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
+                                  class="sppb-column"
+                                >
+                                  <div class="sppb-column-addons">
+                                    <div
+                                      id="sppb-addon-wrapper-63e19b46-0546-4547-8433-4c5914b58f6d"
+                                      class="sppb-addon-wrapper addon-root-text-block"
+                                    >
+                                      <div
+                                        id="sppb-addon-63e19b46-0546-4547-8433-4c5914b58f6d"
+                                        class="clearfix"
+                                      >
+                                        <div
+                                          class="sppb-addon sppb-addon-text-block"
+                                        >
+                                          <div class="sppb-addon-content">
+                                            <p>
+                                              D&eacute;velopp&eacute; par
+                                              <a
+                                                href="https://servicesgeneraux.ci/"
+                                                target="_blank"
+                                                >SGCI</a
+                                              >
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- Go to top -->
+    <a href="#" class="sp-scroll-up" aria-label="Scroll Up"
+      ><span class="fas fa-angle-up" aria-hidden="true"></span
+    ></a>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    {% comment %} <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script> {% endcomment %}
+    <script src="{% static 'assets/js/common.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.parallax.js' %}"></script>
+    <script src="{% static 'assets/js/sppagebuilder.js' %}" defer></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/gmap.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    
+    <script>
+		// Sélectionner les documents
+		function ajouterAuPanier(articleId,nomArticle,prix,imageUrl){
+      // Récupérez le jeton CSRF à partir du formulaire
+      var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+        $.ajax({
+            headers: {
+          "X-CSRFToken": csrfToken
+         },
+
+            url: '{% url "addToCart" %}',
+            data: {
+                'id': articleId,
+                'nomArticle': nomArticle,
+                'prix': prix,
+                'imageUrl': imageUrl,
+                'diminuer': 'false',
+            },
+            dataType: 'json',
+            success: function(response){
+                //output = '';
+                
+               qte = response.totaldocuments;
+               /* x = response.data;
+                
+                output += `
+                  <div class="flex items-center justify-between py-4 px-4">
+                    <h3 class="text-sm font-Inter font-medium text-slate-700 dark:text-white">
+                      Documents sélectionnés
+                    </h3>
+                    <a class="text-xs font-Inter font-normal underline text-slate-500 dark:text-white" href="#">Enrergistrer sortie</a>
+                  </div>
+                `;
+
+                for (let key in x) {
+                  if (x.hasOwnProperty(key)) { // Vérifie que la propriété est propre à l'objet, pas héritée
+                    let documentData = x[key];
+                    output += `
+                    <div class="text-slate-600 dark:text-slate-300 block w-full px-4 py-2 text-sm">
+                      <div class="flex ltr:text-left rtl:text-right relative">
+                        <div class="flex-none ltr:mr-3 rtl:ml-3">
+                          <div class="h-8 w-8 bg-white rounded-full">
+                            <img src="{% static 'gedusers/images/icon/pdf-3.svg'%}" alt="document" class="border-transparent block w-full h-full object-cover rounded-full border"/>
+                          </div>
+                        </div>
+                        <div class="text-slate-600 dark:text-slate-300 block w-full px-4 py-2 text-sm" style="align-items: center;">
+                          <span>
+                            ${documentData.document}
+                          </span>
+                          <span class="justify-end" style="margin-left: auto;">
+                            <button onclick="removeDocument(${key})" type="button" class="transition duration-150 hover:text-danger-500 text-slate-400 delete-button">
+                              <iconify-icon icon="heroicons-outline:trash"></iconify-icon>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>`;
+                  }
+                }*/
+
+              var spanPanier = document.getElementById("taillePanier");
+
+                spanPanier.innerText = qte;
+                //$('#taillePanier').html(output);
+
+            }
+   });
+}
+	</script>
+
+  </body>
+</html>

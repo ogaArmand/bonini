@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bonini',
+    'mptt',
+    'django_countries',
+    'location_field',
+    # 'django.contrib.gis',
 ]
 
 MIDDLEWARE = [
@@ -85,9 +89,9 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'u239556011_kobo',
-#         'USER': 'u239556011_kobo',
-#         'PASSWORD': 'O1ouA$HC=5/r',
+#         'NAME': 'u239556011_cafe_bonini',
+#         'USER': 'u239556011_bonini',
+#         'PASSWORD': 'Tt66Mym9',
 #         'HOST': '154.49.245.1',  # Ou l'adresse IP de votre serveur MySQL
 #         'PORT': '3306',       # Port MySQL par défaut
 #         'OPTIONS': {
@@ -95,7 +99,6 @@ DATABASES = {
 #         },
 #     }
 # }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 

@@ -1,0 +1,911 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+	<head>
+		<meta
+		  name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta charset="utf-8" />
+		<title>Panier</title>
+		<link href="{% static 'assets/images/logo bonini.jpg' %}" rel="icon" />
+		<link
+		  href="{% static 'assets/css/font-awesome-5.min.css' %}"
+		  rel="stylesheet"
+		/>
+		<link
+		  href="{% static 'assets/css/font-awesome-v4-shims.css' %}"
+		  rel="stylesheet"
+		/>
+		<link
+		  href="{% static 'assets/css/animate.min.css' %}"
+		  rel="stylesheet"
+		/>
+		<link
+		  href="{% static 'assets/css/sppagebuilder.css' %}"
+		  rel="stylesheet"
+		/>
+		<link href="{% static 'assets/css/magnific-popup.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/template.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/presets/preset9.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/hikashop.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/custom.css' %}" rel="stylesheet" />
+
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/common.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.parallax.js' %}"></script>
+		<script
+		  src="{% static 'assets/js/sppagebuilder.js' %}"
+		  defer
+		></script>
+		<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static 'assets/js/gmap.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+	
+		<meta property="article:author" content="Bonini" />
+		<meta property="og:locale" content="fr-FR" />
+		<meta property="og:title" content="Panier" />
+		<meta property="og:type" content="website" />
+	  </head>
+  <body
+    class="site helix-ultimate hu com_hikashop com-hikashop view-checkout layout-show task-step itemid-158 en-gb ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right"
+  >
+    <div class="body-wrapper">
+      <div class="body-innerwrapper">
+        <header id="sp-header">
+			<div class="container">
+			  <div class="container-inner">
+				<div class="row py-3">
+				  <div
+					id="sp-logo"
+					class="col-4 col-sm-4 col-md-4 col-lg-3 col-xxl-3 col-xl-3"
+				  >
+					<div class="sp-column d-flex align-items-center">
+					  <div class="logo">
+						<a href="#">
+						  <img
+							class="logo-image"
+							srcset="{% static 'assets/images/logobonini.jpg' %}"
+							src="{% static 'assets/images/logobonini.jpg' %}"
+							alt="Bonini"
+						  />
+						</a>
+					  </div>
+					</div>
+				  </div>
+				  <div
+					id="sp-menu"
+					class="col-5 col-sm-6 col-md-7 col-lg-7 col-xxl-6 col-xl-6"
+				  >
+					<div class="sp-column d-flex align-items-center justify-content-end">
+					</div>
+				  </div>
+				  <div
+					id="sp-position1"
+					class="col-3 col-sm-2 col-md-1 col-lg-2 col-xxl-3 col-xl-3"
+				  >
+					<div class="sp-column d-flex align-items-center">
+					  <div class="sp-module">
+						<div class="sp-module-content">
+						  <div
+							class="mod-sppagebuilder sp-page-builder"
+							data-module_id="126"
+						  >
+							<div class="page-content">
+							  <section
+								id="section-id-6e10dbd7-55a2-4539-9422-05be16439eaa"
+								class="sppb-section"
+							  >
+								<div class="sppb-row-container">
+								  <div class="sppb-row">
+									<div
+									  class="sppb-row-column"
+									  id="column-wrap-id-a56ca86f-21aa-4f02-a76e-dd02632eda0b"
+									>
+									  <div
+										id="column-id-a56ca86f-21aa-4f02-a76e-dd02632eda0b"
+										class="sppb-column"
+									  >
+										<div class="sppb-column-addons">
+										  <div
+											id="sppb-addon-wrapper-b4c7ba74-780f-425d-882f-cb267bb07e34"
+											class="sppb-addon-wrapper"
+										  >
+											<div
+											  id="sppb-addon-b4c7ba74-780f-425d-882f-cb267bb07e34"
+											  class="sppb-div-addon"
+											  data-sppb-wow-duration="300ms"
+											>
+											  <div
+												id="sppb-addon-wrapper-931d47c3-7031-4aa5-940d-d7a00a4c871a"
+												class="sppb-addon-wrapper addon-root-module"
+											  >
+												<div
+												  id="sppb-addon-931d47c3-7031-4aa5-940d-d7a00a4c871a"
+												  class="clearfix"
+												>
+												  <div
+													class="sppb-addon sppb-addon-module"
+												  >
+													<div class="sppb-addon-content d-flex justify-content-end">
+													  <div
+														class="hikashop_cart_module"
+														id="hikashop_cart_module"
+													  >
+														<div
+														  id="hikashop_cart_125"
+														  class="hikashop_cart hika_j4"
+														>
+														  <div
+															class="hikashop_checkout_loading_elem"
+														  ></div>
+														  <div
+															class="hikashop_checkout_loading_spinner small_spinner small_cart"
+														  ></div>
+														</div>
+														<div class="clear_both"></div>
+														<span class="sb-icon">
+														  <img
+															src="{% static 'assets/images/cart.svg' %}"
+															alt="icon"
+														  />
+														</span>
+													  </div>
+													</div>
+												  </div>
+												</div>
+											  </div>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+								</div>
+							  </section>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </header>
+        <section id="sp-section-2">
+          <div class="row">
+            <div id="sp-title" class="bg-menu col-lg-12">
+              <div class="sp-column">
+                <div class="sp-page-title">
+                  <div class="container">
+                    <h2 class="sp-page-title-heading">Panier</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="sp-main-body">
+          <div class="container">
+            <div class="container-inner">
+              <div class="row">
+                <main id="sp-component" class="col-lg-12">
+                  <div class="sp-column">
+                    <div id="system-message-container" aria-live="polite"></div>
+
+                    <form
+                      action=""
+                      method="post"
+                      id="hikashop_checkout_form"
+                      name=""
+                      enctype="multipart/form-data"
+                    >
+                      <div
+                        id="hikashop_checkout"
+                        data-checkout-step="1"
+                        class="hikashop_checkout_page hikashop_checkout_page_step1"
+                      >
+					  <div
+					  id="hikashop_checkout_cart_1_5"
+					  data-checkout-step="1"
+					  data-checkout-pos="5"
+					  class="hikashop_checkout_cart"
+					>
+					  <div class="hikashop_checkout_loading_elem"></div>
+					  <div class="hikashop_checkout_loading_spinner"></div>
+					  <!-- TOP EXTRA DATA -->
+					  <!-- EO TOP EXTRA DATA -->
+					  <table
+						class="table table-striped table-hover"
+						width="100%"
+					  >
+						<thead>
+						  <tr>
+							<!-- IMAGE HEADER -->
+							<th
+							  id="hikashop_cart_product_image_title"
+							  class="hikashop_cart_product_image_title hikashop_cart_title"
+							>
+							Image {{ panier | length }}
+							</th>
+							<!-- EO IMAGE HEADER -->
+							<!-- NAME HEADER -->
+							<th
+							  id="hikashop_cart_product_name_title"
+							  class="hikashop_cart_product_name_title hikashop_cart_title"
+							>
+							  LIbell&eacute;
+							</th>
+							<!-- EO NAME HEADER -->
+							<!-- CUSTOM PRODUCT FIELDS HEADER -->
+
+							<!-- EO CUSTOM PRODUCT FIELDS HEADER -->
+							<!-- UNIT PRICE HEADER -->
+							<th
+							  id="hikashop_cart_product_price_title"
+							  class="hikashop_cart_product_price_title hikashop_cart_title"
+							>
+							   Prix unitaire
+							</th>
+							<!-- EO UNIT PRICE HEADER -->
+							<!-- QUANTITY HEADER -->
+							<th
+							  id="hikashop_cart_product_quantity_title"
+							  class="hikashop_cart_product_quantity_title hikashop_cart_title"
+							>
+							  Quantit&eacute;
+							</th>
+							<!-- EO QUANTITY HEADER -->
+							<!-- TOTAL PRICE HEADER -->
+							<th
+							  id="hikashop_cart_product_total_title"
+							  class="hikashop_cart_product_total_title hikashop_cart_title"
+							>
+							  Total
+							</th>
+							<!-- EO TOTAL PRICE HEADER -->
+						  </tr>
+						</thead>
+						<tbody>
+						{% for articleId,article in panier.items %}
+						  <tr class="row0">
+							<!-- IMAGE -->
+							<td
+							  data-title="Image"
+							  class="hikashop_cart_product_image_value"
+							>
+							  <div
+								class="hikashop_cart_product_image_thumb"
+							  >
+								<img
+								  class="hikashop_product_checkout_cart_image"
+								  src="{{ article.imageUrl }}"
+								/>
+							  </div>
+							</td>
+							<!-- EO IMAGE -->
+							<!-- NAME -->
+							<td
+							  data-title="Nom"
+							  class="hikashop_cart_product_name_value"
+							>
+							  <p class="hikashop_cart_product_name">
+								<a
+								  class="hikashop_no_print"
+								  href="#"
+								  >{{ article.nomArticle }}</a
+								>
+							  </p>
+							</td>
+							<!-- EO NAME -->
+							<!-- CUSTOM PRODUCT FIELDS -->
+							<!-- EO CUSTOM PRODUCT FIELDS -->
+							<!-- UNIT PRICE -->
+							<td
+							  data-title="Unit price"
+							  class="hikashop_cart_product_price_value"
+							>
+							  <span class="hikashop_product_price_full">
+								<span
+								  class="hikashop_product_price_0"
+								  >{{ article.prix }} FCFA</span
+								>
+							  </span>
+							</td>
+							<!-- EO UNIT PRICE -->
+							<!-- QUANTITY -->
+							<td
+							  data-title="Quantité"
+							  class="hikashop_cart_product_quantity_value"
+							>
+							  <div
+								id="hikashop_checkout_5_quantity_field_1_area"
+								class="hikashop_product_quantity_input_div_default_main"
+							  >
+								<div
+								  class="hikashop_product_quantity_div hikashop_product_quantity_input_div_default"
+								>
+								  <input
+									id="hikashop_checkout_5_quantity_field_1"
+									type="text"
+									value="1"
+									class="hikashop_product_quantity_field form-control"
+								  />
+								</div>
+								<div
+								  class="hikashop_product_quantity_div hikashop_product_quantity_change_div_default"
+								>
+								  <div
+									class="hikashop_product_quantity_change_div_plus_default"
+								  >
+									<a
+									  class="p-1 hikashop_product_quantity_field_change_plus hikashop_product_quantity_field_change sppb-btn sppb-btn-primary"
+									  href="#"
+									  data-hk-qty-mod="1"
+									  >+</a
+									>
+								  </div>
+								  <div
+									class="hikashop_product_quantity_change_div_minus_default"
+								  >
+									<a
+									  class="p-1 hikashop_product_quantity_field_change_minus hikashop_product_quantity_field_change sppb-btn sppb-btn-primary"
+									  href="#"
+									  data-hk-qty-mod="-1"
+									  >&ndash;</a
+									>
+								  </div>
+								</div>
+							  </div>
+							  <div
+								class="hikashop_cart_product_quantity_refresh"
+							  >
+								<a
+								  class="hikashop_no_print"
+								  href="#"
+								  title="Refresh"
+								>
+								  <i class="fa fa-sync"></i>
+								</a>
+							  </div>
+							  <div
+								class="hikashop_cart_product_quantity_delete"
+							  >
+								<a
+								  class="hikashop_no_print"
+								  href="#"
+								  title="Delete"
+								>
+								  <i class="fa fa-times-circle"></i>
+								</a>
+							  </div>
+							</td>
+							<!-- EO QUANTITY -->
+							<!-- TOTAL PRICE -->
+							<td
+							  data-title="Total price"
+							  class="hikashop_cart_product_total_value"
+							>
+							  <span class="hikashop_product_price_full">
+								<span
+								  class="hikashop_product_price_0"
+								  >{{ article.prix }} FCFA</span
+								>
+							  </span>
+							</td>
+							<!-- EO TOTAL PRICE -->
+						  </tr>
+{% endfor %}
+						  <!-- SEPARATOR ROW -->
+						  <tr class="margin">
+							<td
+							  colspan="5"
+							  class="hikashop_cart_empty_footer"
+							></td>
+						  </tr>
+						  <!-- EO SEPARATOR ROW -->
+						  <!-- SUBTOTAL ROW -->
+						  <tr>
+							<td
+							  colspan="3"
+							  class="hikashop_cart_empty_footer"
+							></td>
+							<td
+							  id="hikashop_checkout_cart_total2_title"
+							  class="hikashop_cart_subtotal_title hikashop_cart_title"
+							>
+							  Sous-total
+							</td>
+							<td
+							  class="hikashop_cart_subtotal_value"
+							  data-title="Subtotal"
+							>
+							  <span class="hikashop_checkout_cart_subtotal"
+								>9 FCFA</span
+							  >
+							</td>
+						  </tr>
+						  <!-- EO SUBTOTAL ROW -->
+						  <!-- COUPON ROW -->
+						  <!-- EO COUPON ROW -->
+						  <!-- SHIPPING ROW -->
+						  <tr>
+							<td
+							  colspan="3"
+							  class="hikashop_cart_empty_footer"
+							></td>
+							<td
+							  id="hikashop_checkout_cart_shipping_title"
+							  class="hikashop_cart_shipping_title hikashop_cart_title"
+							>
+							  Code Promo
+							</td>
+							<td
+							  class="hikashop_cart_shipping_value"
+							  data-title="Shipping"
+							>
+							  <span class="hikashop_checkout_cart_shipping">
+								-20%
+							  </span>
+							</td>
+						  </tr>
+						  <!-- EO SHIPPING ROW -->
+						  <!-- ADDITIONAL ROW -->
+						  <!-- EO ADDITIONAL ROW -->
+						  <!-- TAXES ROW -->
+						  <!-- EO TAXES ROW -->
+						  <!-- PAYMENT ROW -->
+						  <!-- EO PAYMENT ROW -->
+						  <!-- TOTAL ROW -->
+						  <tr>
+							<td
+							  colspan="3"
+							  class="hikashop_cart_empty_footer"
+							></td>
+							<td
+							  id="hikashop_checkout_cart_final_total_title"
+							  class="hikashop_cart_total_title hikashop_cart_title"
+							>
+							  Total
+							</td>
+							<td
+							  class="hikashop_cart_total_value"
+							  data-title="Total"
+							>
+							  <span
+								class="hikashop_checkout_cart_final_total"
+								>9 FCFA</span
+							  >
+							</td>
+						  </tr>
+						  <!-- EO TOTAL ROW -->
+						</tbody>
+					  </table>
+					</div>
+                        <div
+                          id="hikashop_checkout_payment_1_3"
+                          data-checkout-step="1"
+                          data-checkout-pos="3"
+                          class="hikashop_checkout_payment"
+                        >
+                          <div class="hikashop_checkout_loading_elem"></div>
+                          <div class="hikashop_checkout_loading_spinner"></div>
+
+                          <table
+                            style="width: 100%"
+                            class="hikashop_payment_methods_table table table-bordered table-striped table-hover"
+                          >
+                            <tr>
+                              <td>
+								<input
+								class="hikashop_checkout_payment_radio auStade"
+								type="checkbox"
+								name="checkout[position][id]"
+								id="payment_radio_1_3__creditcard_1"
+								value="1"
+							  />
+							  <label
+								for="payment_radio_1_3__creditcard_1"
+								style="cursor: pointer"
+							  >
+								<span class="hikashop_checkout_payment_name"
+								  >Je suis au stade</span
+								>
+							  </label>
+							  <span class="hikashop_checkout_payment_cost">
+							  </span>
+							  <div
+								id="hikashop_checkout_payment_1_3__1__card"
+								class="hikashop_checkout_payment_card formAuStade d-none"
+							  >
+								<dl class="hika_options large">
+								  <dt>
+									<label>Stade</label>
+								  </dt>
+								  <dd>
+									<select
+									  name="Stade"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="Stade1">Stade 1</option>
+									  <option value="Stade2">Stade 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+								  <dt>
+									<label>Entrée</label>
+								  </dt>
+								  <dd>
+									<select
+									  name="entry"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="entry1">Entrée 1</option>
+									  <option value="entry2">Entrée 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+							  
+								  <dt>
+									<label for="hk_co_p_c_n_1"
+									  >Porte
+								  </dt>
+								  <dd>
+									<select
+									  name="door"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="door1">Door 1</option>
+									  <option value="door2">Door 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+								  <dt>
+									<label for="hk_co_p_c_n_1"
+									  >Zone
+								  </dt>
+								  <dd>
+									<select
+									  name="Zone"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="Zone1">zone 1</option>
+									  <option value="zone2">zone 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+								  
+								  <dt>
+									<label for="hk_co_p_c_n_1"
+									  >Escalier
+								  </dt>
+								  <dd>
+									<select
+									  name="Escalier"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="Escalier1">Escalier 1</option>
+									  <option value="Escalier2">Escalier 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+								  <!-- Repeat the same structure for other fields -->
+								  <!-- ... -->
+								  <dt>
+									<label for="hk_co_p_c_n_1"
+									  >Bloc
+								  </dt>
+								  <dd>
+									<select
+									  name="Bloc"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="Bloc1">Bloc 1</option>
+									  <option value="Bloc2">Bloc 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+								  <dt>
+									<label for="hk_co_p_c_n_1"
+									  >Rang
+								  </dt>
+								  <dd>
+									<select
+									  name="Rang"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="Rang1">Rang 1</option>
+									  <option value="Rang2">Rang 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+
+								  <dt>
+									<label for="hk_co_p_c_n_1"
+									  >Siège
+								  </dt>
+								  <dd>
+									<select
+									  name="Siege"
+									  autocomplete="off"
+									>
+									  <!-- Add your options here -->
+									  <option value="Siege1">Siège 1</option>
+									  <option value="Siege2">Siège 2</option>
+									  <!-- Add more options as needed -->
+									</select>
+								  </dd>
+
+								</dl>
+							  </div>
+							  
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div
+						id="hikashop_checkout_shipping_1_2"
+						data-checkout-step="1"
+						data-checkout-pos="2"
+						class="hikashop_checkout_shipping"
+					>
+						<div class="hikashop_checkout_loading_elem"></div>
+						<div class="hikashop_checkout_loading_spinner"></div>
+						<div class="hikashop_shipping_group">
+						<legend>M&eacute;thode de paiement</legend>
+						<table
+							style="width: 100%"
+							class="hikashop_shipping_methods_table table table-bordered table-striped table-hover"
+						>
+							<tr>
+								<td>
+									<input
+									  class="hikashop_checkout_payment_radio"
+									  type="radio"
+									  name="checkout[payment][id]"
+									  id="payment_radio_1_3__collectondelivery_2"
+									  data-hk-checkout='{"step":1,"pos":3,"block":"payment","type":"collectondelivery","id":2}'
+									  onchange="window.checkout.paymentSelected(this);"
+									  value="2"
+									  checked="checked"
+									/>
+									<label
+									  for="payment_radio_1_3__collectondelivery_2"
+									  style="cursor: pointer"
+									>
+									  <span class="hikashop_checkout_payment_name"
+										>Payer en esp&egrave;ce</span
+									  >
+									</label>
+									<span class="hikashop_checkout_payment_cost">
+									</span>
+									<span class="hikashop_checkout_payment_images">
+									  <img
+										src="../../../media/com_hikashop/images/payment/Collect_on_delivery.jpg"
+										alt=""
+									  />
+									</span>
+									<div
+									  class="hikashop_checkout_payment_description"
+									>
+									  <p>
+										Vous pouvez payer lorsque votre commande est livr&eacute;e
+										en utilisant ce mode de paiement.
+									  </p>
+									</div>
+								  </td>
+							</tr>
+							<tr>
+							<td>
+								<input
+								class="hikashop_checkout_shipping_radio"
+								type="radio"
+								name="checkout[payment][id]"
+								id="shipping_radio_1_2__0__manual_3"
+								data-hk-checkout='{"step":1,"pos":2,"block":"shipping","type":"manual","warehouse":0,"id":3}'
+								onchange="window.checkout.shippingSelected(this);"
+								value="3"
+								/>
+								<label
+								for="shipping_radio_1_2__0__manual_3"
+								style="cursor: pointer"
+								>
+								<span
+									class="hikashop_checkout_shipping_name"
+									>Payer par Mobile Money</span
+								>
+								</label>
+								<span
+								class="hikashop_checkout_shipping_images"
+								>
+								<img
+									src="../../../media/com_hikashop/images/shipping/shop.jpg"
+									alt=""
+								/>
+								</span>
+								<div
+								class="hikashop_checkout_shipping_description"
+								>
+								<p>
+									Vous pouvez payer en scannant le QR Code correspondant à votre service de mobile money.
+								</p>
+								</div>
+							</td>
+							</tr>
+						</table>
+						</div>
+					</div>
+                        <!-- EO CHECKOUT -->
+                        <!-- BOTTOM EXTRA DATA -->
+                        <!-- EO BOTTOM EXTRA DATA -->
+                        <!-- BUTTONS -->
+                        <div class="hikashop_checkout_buttons">
+                          <div class="buttons_left">
+                            <!-- CONTINUE SHOPPING BUTTON -->
+                            <!-- EO CONTINUE SHOPPING BUTTON -->
+                          </div>
+                          <div class="buttons_right">
+                            <!-- NEXT BUTTON -->
+                            <button
+                              id="hikabtn_checkout_next"
+                              type="submit"
+                              class="sppb-btn sppb-btn-primary hikabtn-success hikabtn_checkout_next"
+                            >
+                              Commander
+                            </button>
+                            <!-- EO NEXT BUTTON -->
+                          </div>
+                          <div style="clear: both"></div>
+                        </div>
+                        <!-- EO BUTTONS -->
+                        <!-- OTHER EXTRA DATA -->
+                        <!-- EO OTHER EXTRA DATA -->
+                        <!-- PROGRESS BAR END -->
+                        <!-- EO PROGRESS BAR END -->
+                      </div>
+                    </form>
+                  </div>
+                </main>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer id="sp-footer">
+			<div class="row">
+				<div id="sp-footer1" class="col-lg-12">
+					<div class="sp-column">
+						<div class="sp-module">
+							<div class="sp-module-content">
+								<div
+									class="mod-sppagebuilder sp-page-builder"
+									data-module_id="124">
+									<div class="page-content">
+										<section
+											id="section-id-104e2e5e-eea1-4284-b734-116a98b8f1f9"
+											class="sppb-section sppb-section-content-center">
+											<div class="sppb-row-container">
+												<div class="sppb-row sppb-align-center">
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6">
+														<div
+															id="column-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																	class="sppb-addon-wrapper addon-root-image">
+																	<div
+																		id="sppb-addon-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-single-image">
+																			<div class="sppb-addon-content">
+																				<div
+																					class="sppb-addon-single-image-container">
+																					<a href="../index.htm"><img
+																							class="sppb-img-responsive logo-image"
+																							src="{% static 'assets/images/logo bonini.jpg' %}"
+																							alt="Image"
+																							title /></a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-f7e87639-0f29-440f-aed0-30942735eeb1">
+														<div
+															id="column-id-f7e87639-0f29-440f-aed0-30942735eeb1"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																	class="sppb-addon-wrapper addon-root-raw-html">
+																	<div
+																		id="sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-raw-html">
+																			<div class="sppb-addon-content">
+																				<ul class="sb-social">
+																					<li>
+																						<a href="https://www.instagram.com/caffeboniniabidjan?igsh=MW9ldTBxZjZ1N24ydw==" target="_blank"><i
+																								class="fab fa-instagram"></i></a>
+																					</li>
+																					<li>
+																						<a href="https://www.facebook.com/caffeboniniabidjan?mibextid=ZbWKwL" target="_blank"><i
+																								class="fab fa-facebook-f"></i></a>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0">
+														<div
+															id="column-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-63e19b46-0546-4547-8433-4c5914b58f6d"
+																	class="sppb-addon-wrapper addon-root-text-block">
+																	<div
+																		id="sppb-addon-63e19b46-0546-4547-8433-4c5914b58f6d"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-text-block">
+																			<div class="sppb-addon-content">
+																				<p>
+																					D&eacute;velopp&eacute; par <a href="https://servicesgeneraux.ci/" target="_blank">SGCI</a>
+																				</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+      </div>
+    </div>
+
+    <!-- Go to top -->
+    <a
+      href="#"
+      class="sp-scroll-up"
+      aria-label="HELIX_ULTIMATE_SCROLL_UP_ARIA_LABEL"
+      ><span class="fas fa-angle-up" aria-hidden="true"></span
+    ></a>
+  </body>
+
+</html>

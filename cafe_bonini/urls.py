@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from bonini.views import menu,formulaire,index
+from bonini.views import menu,formulaire,index,addToCart,ouvrirpanier,removeFromCart,recupererDonnesStades,commander,updateCart
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,13 @@ urlpatterns = [
     path('menu/<int:inscription_id>/', menu, name='menu'),
     # path('TB1', TB1, name='TB1'),
     path('', index, name='index'),
+    path('addToCart', addToCart, name='addToCart'),
+    path('ouvrirpanier', ouvrirpanier, name='ouvrirpanier'),
+    path('removeFromCart', removeFromCart, name='removeFromCart'),
+    path('recupererDonnesStades', recupererDonnesStades, name='recupererDonnesStades'),
+    path('commander', commander, name='commander'),
+    path('updateCart', updateCart, name='updateCart'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

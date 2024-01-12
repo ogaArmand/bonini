@@ -1,0 +1,112 @@
+
+									{% for articleId,article in panier.items %}
+										<tr class="row0" id="list_article">
+											<!-- IMAGE -->
+											<td data-title="Image" class="hikashop_cart_product_image_value">
+												<div class="hikashop_cart_product_image_thumb">
+													{% comment %} <img class="hikashop_product_checkout_cart_image" src="{% static 'assets/images/menu/1.jpg' %}"/> {% endcomment %}
+													<img class="hikashop_product_checkout_cart_image" src="{{ article.imageUrl }}"/>
+												</div>
+											</td>
+											<!-- EO IMAGE -->
+											<!-- NAME -->
+											<td data-title="Nom" class="hikashop_cart_product_name_value">
+												<p class="hikashop_cart_product_name">
+													<a class="hikashop_no_print" href="#">{{ article.nomArticle }} </a>
+												</p>
+											</td>
+											<!-- EO NAME -->
+											<!-- CUSTOM PRODUCT FIELDS -->
+											<!-- EO CUSTOM PRODUCT FIELDS -->
+											<!-- UNIT PRICE -->
+											<td data-title="Unit price" class="hikashop_cart_product_price_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0">{{ article.prix }} FCFA</span>
+												</span>
+											</td>
+											<!-- EO UNIT PRICE -->
+											<!-- QUANTITY -->
+											<td data-title="Quantité" class="hikashop_cart_product_quantity_value">
+												<div id="hikashop_checkout_5_quantity_field_1_area" class="hikashop_product_quantity_input_div_default_main">
+													<div class="hikashop_product_quantity_div hikashop_product_quantity_input_div_default">
+														<input id="hikashop_checkout_5_quantity_field_1" type="text" value="{{ article.quantite }}" class="hikashop_product_quantity_field form-control"/>
+													</div>
+													<div class="hikashop_product_quantity_div hikashop_product_quantity_change_div_default">
+														<div class="hikashop_product_quantity_change_div_plus_default">
+															<button type="button" onclick='augmenter({{articleId}},"{{ article.nomArticle }}","{{ article.prix }}","{{ article.imageUrl }}", "false")' class="p-1 hikashop_product_quantity_field_change_plus hikashop_product_quantity_field_change sppb-btn btn-qte sppb-btn-primary">+</button>
+														</div>
+														<div class="hikashop_product_quantity_change_div_minus_default">
+															<button type="button" onclick='augmenter("{{articleId}}","{{ article.nomArticle }}","{{ article.prix }}","{{ article.imageUrl }}", "true")' class="p-1 hikashop_product_quantity_field_change_minus hikashop_product_quantity_field_change sppb-btn btn-qte sppb-btn-primary">&ndash;</button>
+														</div>
+													</div>
+												</div>
+												<div class="hikashop_cart_product_quantity_refresh">
+													<a class="hikashop_no_print" href="#" title="Refresh">
+														<i class="fa fa-sync"></i>
+													</a>
+												</div>
+												<div class="hikashop_cart_product_quantity_delete">
+													<button onclick='removeArticle({{articleId}})' type="button" class="hikashop_no_print" href="#" title="Delete">
+														<i class="fa fa-times-circle"></i>
+													</button>
+												</div>
+											</td>
+											<!-- EO QUANTITY -->
+											<!-- TOTAL PRICE -->
+											<td data-title="Total price" class="hikashop_cart_product_total_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0" id="sous_montant">{{ article.total }} FCFA</span>
+												</span>
+											</td>
+											<!-- EO TOTAL PRICE -->
+										</tr>
+									{% endfor %}
+								<!-- SEPARATOR ROW -->
+								<tr class="margin">
+									<td colspan="5" class="hikashop_cart_empty_footer"></td>
+								</tr>
+								<!-- EO SEPARATOR ROW -->
+								<!-- SUBTOTAL ROW -->
+								<tr>
+									<td colspan="3" class="hikashop_cart_empty_footer"></td>
+									<td id="hikashop_checkout_cart_total2_title" class="hikashop_cart_subtotal_title hikashop_cart_title">
+									Sous-total
+									</td>
+									<td class="hikashop_cart_subtotal_value" data-title="Subtotal">
+									<span class="hikashop_checkout_cart_subtotal" id="montant_general">{{ total_general }} FCFA</span>
+									</td>
+								</tr>
+								<!-- EO SUBTOTAL ROW -->
+								<!-- COUPON ROW -->
+								<!-- EO COUPON ROW -->
+								<!-- SHIPPING ROW -->
+								<tr>
+									<td colspan="3" class="hikashop_cart_empty_footer"></td>
+									<td id="hikashop_checkout_cart_shipping_title" class="hikashop_cart_shipping_title hikashop_cart_title">
+									R&eacute;duction
+									</td>
+									<td class="hikashop_cart_shipping_value" data-title="Shipping">
+									<span class="hikashop_checkout_cart_shipping">
+										-20%
+									</span>
+									</td>
+								</tr>
+								<!-- EO SHIPPING ROW -->
+								<!-- ADDITIONAL ROW -->
+								<!-- EO ADDITIONAL ROW -->
+								<!-- TAXES ROW -->
+								<!-- EO TAXES ROW -->
+								<!-- PAYMENT ROW -->
+								<!-- EO PAYMENT ROW -->
+								<!-- TOTAL ROW -->
+								<tr>
+									<td colspan="3" class="hikashop_cart_empty_footer"></td>
+									<td id="hikashop_checkout_cart_final_total_title" class="hikashop_cart_total_title hikashop_cart_title">
+									Total
+									</td>
+									<td class="hikashop_cart_total_value" data-title="Total">
+									<span class="hikashop_checkout_cart_final_total">{{ total_general }} FCFA</span>
+									</td>
+								</tr>
+								<!-- EO TOTAL ROW -->
+				

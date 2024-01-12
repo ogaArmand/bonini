@@ -1,4 +1,5 @@
 ﻿{% load static %}
+{% load countries %}
 
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -10,9 +11,9 @@
 		<meta
 			name="generator"
 			content="Helix Ultimate - The Most Popular Joomla! Template Framework." />
-		<title>Reservation</title>
+		<title>Formulaire</title>
 		<link
-			href="{% static 'assets/images/logo bonini.jpg' %}"
+			href="{% static 'assets/images/logobonini.jpg' %}"
 			rel="icon"/>
 		<link
 			href="{% static 'assets/css/font-awesome-5.min.css' %}"
@@ -47,7 +48,10 @@
 			src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
 		<script src="{% static 'assets/js/gmap.js' %}"></script>
 		<script src="{% static 'assets/js/main.js' %}"></script>
-
+		
+		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+		
 		<meta property="article:author" content="Bonini" />
 		<meta property="og:locale" content="fr-FR" />
 		<meta property="og:title" content="Formulaire d'inscription" />
@@ -65,7 +69,7 @@
 										<a href="#">
 											<img
 												class="logo-image mx-auto"
-												srcset="{% static 'assets/images/logo bonini.jpg 1x' %}"
+												{% comment %} srcset="{% static 'assets/images/logobonini.jpg 1x' %}" {% endcomment %}
 												src="{% static 'assets/images/logo bonini.jpg' %}"
 												alt="Bonini" />
 										</a>
@@ -254,17 +258,18 @@
 																																	<span
 																																	class="sppb-form-builder-required">Champ obligatoire.</span>
 																															</div>
-																															<div
-																																class="sppb-form-group sppb-form-builder-field-2">
-																																<input
-																																	type="text"
-																																	id="sppb-form-builder-field-2"
-																																	name="pays"
-																																	class="sppb-form-control"
-																																	placeholder="Pays" required/>
-																																	<span
-																																	class="sppb-form-builder-required">Champ obligatoire.</span>
+																															<div class="sppb-form-group sppb-form-builder-field-2">
+																																{% get_countries as countries %}
+																																<select id="sppb-form-builder-field-2" name="pays" class="sppb-form-control" required>
+																																	<option value="" disabled selected hidden>Sélectionnez un pays</option>
+																																
+																																{% for country in countries %}
+																																	<option value="{{ country.code }}">{{ country.name }}</option>
+																																{% endfor %}
+																																</select>
+																																
 																															</div>
+																															
 																															<div
 																																class="sppb-form-group sppb-form-builder-field-2">
 																																<input
@@ -289,6 +294,8 @@
 																																		class="sb-icon"><img
 																																			src="{% static 'assets/images/arrow.svg' %}" /></span>Valider
 																																</button>
+																															
+
 																															</div>
 																														</form>
 																													</div>
@@ -352,7 +359,7 @@
 																							class="sppb-addon-single-image-container">
 																							<a href="../index.htm"><img
 																									class="sppb-img-responsive logo-image"
-																									src="../static/assets/images/logo bonini.jpg"
+																									src="../static/assets/images/logobonini.jpg"
 																									alt="Image"
 																									title /></a>
 																						</div>
