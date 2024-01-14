@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from .models import inscription,lemenu,codepromo,stade,commande,commande_detail,commende_match,listematch
+from .models import inscription,lemenu,codepromo,stade,menu_stade,menu_restaurant,commande,commande_detail,commende_match,listematch,Location
 from .forms import InscriptionForm
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, FileResponse
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime, timedelta
@@ -11,7 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 import hashlib
 from decimal import Decimal  # Import Decimal for accurate decimal arithmetic
 from django.template import loader
-
+import os
+import requests
 
 def generate_reference(quantite,prixtotal,create_at):
         # Combinez les détails pertinents pour créer un code unique
@@ -59,6 +60,7 @@ def menu(request, inscription_id):
         'menus':menus,
         'promo_code':promo_code,
         'panier': cart_data,
+
      }
     return render(request, 'menu.html',context)
 
@@ -96,7 +98,7 @@ def formulaire(request,qr):
             )
             
             # L'enregistrement a été fait avec succès
-            return redirect('menu', inscription_id=inscription_instance.id)
+            return redirect('menu_stade_restaurant')
         except Exception as e:
             # Une exception s'est produite (par exemple, des erreurs de validation)
             error_message = str(e)
@@ -118,14 +120,21 @@ def obtenir_liste_pays():
 def addToCart(request):
     cart_restaurant = {}
 
+    # cart_restaurant[str(request.GET['id'])] = {
+    #   'nomArticle': request.GET['nomArticle'],
+    #   'prix': int(request.GET['prix']),
+
+    # 'imageUrl': str(request.GET['imageUrl']),
+    #   'quantite': 1,
+    #   'total': 0,
+    # }
     cart_restaurant[str(request.GET['id'])] = {
       'nomArticle': request.GET['nomArticle'],
       'prix': int(request.GET['prix']),
-
-    'imageUrl': str(request.GET['imageUrl']),
+      'imageUrl': str(request.GET['imageUrl']),
       'quantite': 1,
-      'total': 0,
-    }
+      'total': int(request.GET['prix']),
+      }
     
     diminuer = request.GET['diminuer']
 
@@ -235,15 +244,24 @@ def ouvrirpanier(request):
 
 @csrf_exempt
 def recupererDonnesStades(request):
-    id = request.POST.get('id')
     
-    stades_data = stade.objects._mptt_filter(parent_id=id).values()
+    id = request.GET.get('id')
     
-    # stades_list = [model_to_dict(stade_obj) for stade_obj in stades_data]
-    stades_list = list(stades_data)
-    
-    # return JsonResponse({"data": stades_list})
-    return JsonResponse({"data":stades_list})
+    try:
+        menustade = menu_stade.objects.get(id=id)
+        
+        # Vous pouvez adapter ce dictionnaire en fonction des champs de votre modèle
+        menustade_data = {
+            'id': menustade.id,
+            'libelle': menustade.libelle,
+            'estactif': menustade.estactif,
+            'image': menustade.image,
+            # Ajoutez d'autres champs ici
+        }
+
+        return JsonResponse({"data": menustade_data})
+    except menu_stade.DoesNotExist:
+        return JsonResponse({"error": "Stade non trouvé"}, status=404)
 
 def commander(request):
     if request.method == 'POST':
@@ -265,19 +283,26 @@ def commander(request):
         inscription_id = request.session.get('inscription_id', None)
         promo_code_id = request.session.get('promo_code_id', None)
         
+        ref=generate_reference(qte_total,total_general,create_at)
 
         inscription_instance = get_object_or_404(inscription, pk=inscription_id)
         codepromo_instance = get_object_or_404(codepromo, pk=promo_code_id)
         commande_instance = commande.objects.create(
                 inscription=inscription_instance,
                 codepromo=codepromo_instance,
-                ref=generate_reference(qte_total,total_general,create_at),
+                ref=ref,
                 quantite=qte_total,
                 prixtotal=total_general,
                 etat='en cours de preparation',
             )
         commande_id = commande_instance.id
-        
+
+        # mettre à jour la localisation
+        Location_id = request.session.get('Location_id', None)
+        Location_instance = get_object_or_404(Location, pk=Location_id)
+        Location_instance.ref = ref
+        Location_instance.save()
+
         commande_instance = get_object_or_404(commande, pk=commande_id)
         if austade ==1:
             liste_match = listematch.objects.get(estencours=1)
@@ -324,5 +349,92 @@ def commander(request):
     request.session.pop('cart_data_obj', None)
     # créer une nouvelle instance de "cart_data_obj" vide
     request.session['cart_data_obj']={}
+    context = {
+        'inscription_id':inscription_id
+    }
+    return render(request,'ordered.html',context)
 
-    return JsonResponse({"data":panier})
+
+
+def telecharger_menu(request):
+    chemin_pdf = 'bonini/static/assets/images/menu.pdf'
+
+    if os.path.exists(chemin_pdf):
+        with open(chemin_pdf, 'rb') as pdf_file:
+            response = HttpResponse(pdf_file.read(), content_type='application/pdf')
+            response['Content-Disposition'] = 'inline; filename="votre_fichier.pdf"'
+            return response
+    else:
+        return render(request, '404.html')
+
+def enregistrer_coordonnees(request):
+    if request.method == 'POST':
+        ref = request.POST.get('ref')
+        inscription_id = request.session.get('inscription_id', None)
+        inscription_instance = get_object_or_404(inscription, pk=inscription_id)
+        latitude = request.POST.get('latitude')
+        longitude = request.POST.get('longitude')
+        new_location = Location(inscription=inscription_instance,latitude=latitude, longitude=longitude)
+        new_location.save()
+        request.session['Location_id'] = new_location.id
+
+        return JsonResponse({'message': 'Coordonnées enregistrées avec succès.'})
+    else:
+        return JsonResponse({'message': 'Méthode non autorisée.'},status=405)
+    
+def suivi_commande(request):
+    commandes = commande.objects.all()
+    context = {
+        'commandes':commandes
+    }
+    return render(request,'suividescommandes.html',context)
+
+
+
+def localiser_sur_google_maps(request,ref):
+    # Récupérer les coordonnées de latitude et de longitude depuis votre modèle
+    objet = Location.objects.get(ref=ref)  # Remplacez par l'objet que vous souhaitez localiser
+    lat = objet.latitude
+    lon = objet.longitude
+
+    # Construire le lien Google Maps avec les paramètres de latitude et de longitude
+    google_maps_link = f'https://www.google.com/maps/place/{lat},{lon}'
+    # https://www.google.com/maps/@{lat},-4.0206286,18.38z?entry=ttu
+
+    # Rediriger l'utilisateur vers le lien Google Maps
+    return redirect(google_maps_link)
+
+def menu_stade_restaurant(request):
+    stades = stade.objects._mptt_filter(level=0)
+    menu_restaurants = menu_restaurant.objects.get(estactif=1)
+    context ={
+        'stades':stades,
+        'menu_restaurants':menu_restaurants,
+    }
+    return render(request,'choixmenu.html',context)
+
+@csrf_exempt
+def get_menu_image(request):
+    try:
+        id = int(request.GET.get('id'))
+    except (ValueError, TypeError):
+        # Handle the case where 'id' is not a valid integer
+        data = {'error': 'Invalid or missing id parameter.'}
+        return JsonResponse(data)
+    print(id)
+    stades = get_object_or_404(stade, pk=id)
+    menu = menu_stade.objects.get(stade=stades)
+    
+    if not menu:
+        data = {'error': 'Menu not found for the provided id.'}
+        return JsonResponse(data)
+
+    data = {
+        'menu': {
+            'id': menu.id,
+            'image_url': menu.image.url,
+            # Add other relevant fields from your 'menu_stade' model
+        }
+    }
+
+    return JsonResponse(data)

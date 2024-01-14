@@ -36,7 +36,7 @@ function move() {
 
 jQuery(function ($) {
 	// Affichage du mini-formulaire de position au stade
-$('.auStade').on('change', function(){
+$('.auStade').on('click', function(){
 	$('.formAuStade').toggleClass('d-none');
 });
 	/**

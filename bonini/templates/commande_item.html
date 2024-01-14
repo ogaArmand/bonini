@@ -1,0 +1,85 @@
+
+									{% for commande in commandes %}
+										<tr class="row0" id="list_article">
+											<!-- IMAGE -->
+											<td data-title="Image" class="hikashop_cart_product_image_value">
+												<div class="hikashop_cart_product_image_thumb">
+													<img class="hikashop_product_checkout_cart_image" src="{{ commande.imageUrl }}"/>
+												</div>
+											</td>
+											<!-- EO IMAGE -->
+											<!-- NAME -->
+											<td data-title="Nom" class="hikashop_cart_product_name_value">
+												<p class="hikashop_cart_product_name">
+													<a class="hikashop_no_print" href="#">{{ commande.inscription.nom }} {{ commande.inscription.prenom }} </a>
+												</p>
+											</td>
+											<!-- EO NAME -->
+											<!-- REFERENCE -->
+											<td data-title="Unit price" class="hikashop_cart_product_price_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0">{{ commande.ref }}</span>
+												</span>
+											</td>
+											<!-- EO REFERENCE -->
+											<!-- QUANTITY -->
+											<td data-title="Quantité" class="hikashop_cart_product_quantity_value">
+												<div id="hikashop_checkout_5_quantity_field_1_area" class="hikashop_product_quantity_input_div_default_main">
+													<div class="hikashop_product_quantity_div hikashop_product_quantity_input_div_default">
+														<input id="hikashop_checkout_5_quantity_field_1" type="text" value="{{ commande.quantite }}" class="hikashop_product_quantity_field form-control"/>
+													</div>
+													
+												</div>
+												
+											</td>
+											<!-- EO QUANTITY -->
+											<!-- TOTAL PRICE -->
+											<td data-title="Total price" class="hikashop_cart_product_total_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0" id="sous_montant">{{ commande.prixtotal }} FCFA</span>
+												</span>
+											</td>
+											<!-- EO TOTAL PRICE -->
+											<!-- NBRE ARTICLE -->
+											<td data-title="Total price" class="hikashop_cart_product_total_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0" id="sous_montant">{{ commande.nbarticle }}</span>
+												</span>
+											</td>
+											<!-- EO NBRE ARTICLE -->
+											<!-- EST FACTURE -->
+											<td data-title="Total price" class="hikashop_cart_product_total_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0" id="sous_montant">{{ commande.estfacture }}</span>
+												</span>
+											</td>
+											<!-- EO EST FACTURE -->
+											<!-- ETAT -->
+											<td data-title="Total price" class="hikashop_cart_product_total_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0" id="sous_montant">{{ commande.etat }}</span>
+												</span>
+											</td>
+											<!-- EO ETAT -->
+											<!-- CREE A L'ADRESSE -->
+											<td data-title="Total price" class="hikashop_cart_product_total_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0" id="sous_montant">{{ commande.create_at }}</span>
+												</span>
+											</td>
+											<!-- EO CREE A L'ADRESSE -->
+											<!-- MIS A JOUR A L'ADRESSE -->
+											<td data-title="Total price" class="hikashop_cart_product_total_value">
+												<span class="hikashop_product_price_full">
+													<span class="hikashop_product_price_0" id="sous_montant">
+													<a href="{% url 'localiser_sur_google_maps' commande.ref %}" target="_blank" rel="noopener noreferrer">
+														<button type="button" class="sppb-btn ps-4 mt-2 w-100 justify-content-center sppb-btn-primary hikabtn-success">Localiser</button>
+													</a>
+													</span>
+												</span>
+											</td>
+											<!-- EO TMIS A JOUR A L'ADRESSE -->
+										</tr>
+									{% endfor %}
+								
+				

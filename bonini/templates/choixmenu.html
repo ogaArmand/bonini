@@ -1,0 +1,658 @@
+{% load static %}
+{% load mptt_tags %}
+<!DOCTYPE html>
+<html lang="fr-FR">
+	<head>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta charset="utf-8" />
+		<meta
+			name="generator"
+			content="Cafe Bonini" />
+		<title>Choix du menu</title>
+		<link
+			href="{% static 'assets/images/logo bonini.jpg' %}"
+			rel="icon"/>
+		<link
+			href="{% static 'assets/css/font-awesome-5.min.css' %}"
+			rel="stylesheet" />
+		<link
+			href="{% static 'assets/css/font-awesome-v4-shims.css' %}"
+			rel="stylesheet" />
+		<link
+			href="{% static 'assets/css/animate.min.css' %}"
+			rel="stylesheet" />
+		<link
+			href="{% static 'assets/css/sppagebuilder.css' %}"
+			rel="stylesheet" />
+		<link
+			href="{% static 'assets/css/magnific-popup.css' %}"
+			rel="stylesheet" />
+		<link
+			href="{% static 'assets/css/bootstrap.min.css' %}"
+			rel="stylesheet" />
+		<link href="{% static 'assets/css/template.css' %}" rel="stylesheet" />
+		<link
+			href="{% static 'assets/css/presets/preset9.css' %}"
+			rel="stylesheet" />
+		<link href="{% static 'assets/css/custom.css' %}" rel="stylesheet" />
+        <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/common.js' %}"></script>
+		<script
+			src="{% static 'assets/js/jquery.parallax.js' %}"></script>
+		<script
+			src="{% static 'assets/js/sppagebuilder.js' %}"
+			defer></script>
+		<script
+			src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static 'assets/js/gmap.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+		
+		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+		
+		<meta property="article:author" content="Bonini" />
+		<meta property="og:locale" content="fr-FR" />
+		<meta property="og:title" content="Choix du menu" />
+		<meta property="og:type" content="website" />
+	</head>
+  <body
+    class="site helix-ultimate hu com_sppagebuilder com-sppagebuilder view-page layout-default task-none itemid-127 en-gb ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right"
+  >
+    <div class="body-wrapper">
+      <div class="">
+        <header id="sp-header">
+          <div class="container">
+            <div class="container-inner">
+              <div class="row justify-content-center">
+                <div id="sp-logo" class="col-4 col-sm-4 col-md-4 col-lg-3 col-xxl-3 col-xl-3">
+                  <div class="logo py-3">
+                    <a href="#">
+                      <img
+                        class="logo-image mx-auto"
+                        src="{% static 'assets/images/logo bonini.jpg' %}"
+                        alt="Bonini" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </header>
+        <section id="sp-section-2">
+          <div class="row">
+            <div id="sp-title" class="col-lg-12">
+              <div class="sp-column"></div>
+            </div>
+          </div>
+        </section>
+        <section id="sp-main-body" class="sp-main-body">
+          <div class="row">
+            <main id="sp-component" class="col-lg-12">
+                <div class="sp-column">
+                    <div class="row vh-100 align-items-center">
+                        <div class="row">
+                            <section id="section-id-3eceb363-6937-443d-b395-91672ebe52be" class="sppb-section">
+                                <div class="sppb-row-container">
+                                <div class="sppb-row">
+                                    <div
+                                    class="sppb-row-column"
+                                    id="column-wrap-id-d270b19d-1fbd-4998-b293-75ca6484353e"
+                                    >
+                                        <div
+                                            id="column-id-d270b19d-1fbd-4998-b293-75ca6484353e"
+                                            class="sppb-column"
+                                        >
+                                            <div class="sppb-column-addons">
+                                            <div
+                                                id="section-id-f99390cd-d30a-42c1-b0ea-e93868892aaa"
+                                                class="sppb-section"
+                                            >
+                                                <div class="sppb-container-inner">
+                                                <div class="sppb-row sppb-nested-row">
+                                                    <div
+                                                    class="sppb-row-column"
+                                                    id="column-wrap-id-62b2c147-0387-472f-af66-3507416fb638"
+                                                    >
+                                                    <div
+                                                        id="column-id-62b2c147-0387-472f-af66-3507416fb638"
+                                                        class="sppb-column"
+                                                    >
+                                                        <div class="sppb-column-addons">
+                                                        <div
+                                                            id="sppb-addon-wrapper-811a6bfb-3709-4e4b-86b4-98b2c94c0084"
+                                                            class="sppb-addon-wrapper addon-root-feature"
+                                                        >
+                                                            <div
+                                                            id="sppb-addon-811a6bfb-3709-4e4b-86b4-98b2c94c0084"
+                                                            class="clearfix"
+                                                            >
+                                                            <div
+                                                                class="sppb-addon sppb-addon-feature sppb-text-left sb-categorie-card"
+                                                            >
+                                                                <div
+                                                                class="sppb-addon-content"
+                                                                >
+                                                                <div class="sppb-media">
+                                                                    <div class="pull-left">
+                                                                        <span class="sppb-img-container">
+                                                                            <a href="#" >
+                                                                                <img class="sppb-img-responsive" style="display: inline-block;" src="{% static 'assets/images/stade.png' %}" alt="Stade" loading="lazy" />
+                                                                            </a>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div
+                                                                    class="sppb-media-body"
+                                                                    >
+                                                                    <div
+                                                                        class="sppb-media-content"
+                                                                    >
+                                                                        <h3
+                                                                        class="sppb-addon-title sppb-feature-box-title sppb-media-heading"
+                                                                        >
+                                                                        <a class="" >Stade</a>
+                                                                        </h3>
+                                                                        <div class="sppb-addon-text">
+                                                                        <button class="auStade sppb-btn ps-4 sppb-btn-primary hikabtn-success hikabtn_checkout_next">Voir le menu du stade</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div id="hikashop_checkout_payment_1_3_1_card" class="hikashop_checkout_payment_card formAuStade w-100 mx-auto d-none">
+                                                            <dl class="hika_options large">
+                                                                <dt>
+                                                                    <label>Choisissez un stade</label>
+                                                                </dt> 
+                                                                <dd>
+                                                                    <select name="Stade" onchange="voirModal(this)" autocomplete="off" id="stade">
+																		<option value="-1">Sélectionnez un élément</option>
+																		
+																		{% recursetree stades %}
+																			<option value="{{ node.id }}">{{ node.id }} {{node.name}}</option>
+																		{% endrecursetree %}
+															 		</select>
+                                                                </dd>
+                                                            </dl>
+															
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div
+                                                    class="sppb-row-column"
+                                                    id="column-wrap-id-f092d797-e611-4cdb-af4d-ed503be1c587"
+                                                    >
+                                                    <div
+                                                        id="column-id-f092d797-e611-4cdb-af4d-ed503be1c587"
+                                                        class="sppb-column"
+                                                    >
+                                                        <div class="sppb-column-addons">
+                                                        <div
+                                                            id="sppb-addon-wrapper-2b011399-e1cf-4b3a-bd40-1aa4a4c53250"
+                                                            class="sppb-addon-wrapper addon-root-feature"
+                                                        >
+                                                            <div
+                                                            id="sppb-addon-2b011399-e1cf-4b3a-bd40-1aa4a4c53250"
+                                                            class="clearfix"
+                                                            >
+                                                            <div
+                                                                class="sppb-addon sppb-addon-feature sppb-text-left sb-categorie-card"
+                                                            >
+                                                                <div
+                                                                class="sppb-addon-content"
+                                                                >
+                                                                <div class="sppb-media">
+                                                                    <div class="pull-left">
+                                                                    <span
+                                                                        class="sppb-img-container"
+                                                                        ><a
+                                                                        href="#"
+                                                                        ><img
+                                                                            class="sppb-img-responsive"
+                                                                            style="
+                                                                            display: inline-block;
+                                                                            "
+                                                                            src="{% static 'assets/images/restaurant.png' %}"
+                                                                            alt="Stade"
+                                                                            loading="lazy" /></a
+                                                                    ></span>
+                                                                    </div>
+                                                                    <div
+                                                                    class="sppb-media-body"
+                                                                    >
+                                                                    <div
+                                                                        class="sppb-media-content"
+                                                                    >
+                                                                        <h3
+                                                                        class="sppb-addon-title sppb-feature-box-title sppb-media-heading"
+                                                                        >
+                                                                        <a
+                                                                            href="#"
+                                                                            >Restaurant</a
+                                                                        >
+                                                                        </h3>
+																		<div class="sppb-addon-text">
+                                                                            <button data-bs-toggle="modal" data-bs-target="#restaurantModal" class="sppb-btn ps-4 sppb-btn-primary hikabtn-success hikabtn_checkout_next">Voir le menu du restaurant</button>
+                                                            			</div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </main>
+          </div>
+        </section>
+        <footer id="sp-footer">
+			<div class="row">
+				<div id="sp-footer1" class="col-lg-12">
+					<div class="sp-column">
+						<div class="sp-module">
+							<div class="sp-module-content">
+								<div
+									class="mod-sppagebuilder sp-page-builder"
+									data-module_id="124">
+									<div class="page-content">
+										<section
+											id="section-id-104e2e5e-eea1-4284-b734-116a98b8f1f9"
+											class="sppb-section sppb-section-content-center">
+											<div class="sppb-row-container">
+												<div class="sppb-row sppb-align-center">
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6">
+														<div
+															id="column-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																	class="sppb-addon-wrapper addon-root-image">
+																	<div
+																		id="sppb-addon-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-single-image">
+																			<div class="sppb-addon-content">
+																				<div
+																					class="sppb-addon-single-image-container">
+																					<a href="#"><img
+																							class="sppb-img-responsive logo-image"
+																							src="{% static 'assets/images/logo bonini.jpg' %}"
+																							alt="Image"
+																							title /></a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div
+																	id="sppb-addon-wrapper-6011acb3-f984-4540-aa7e-e22ee099f986"
+																	class="sppb-addon-wrapper sppb-hidden-xl sppb-hidden-lg sppb-hidden-md addon-root-empty-space">
+																	<div
+																		id="sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986"
+																		class="clearfix">
+																		<div
+																			class="sppb-empty-space clearfix"></div>
+																		<style type="text/css">
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									box-shadow: 0 0 0 0 #ffffff;
+								  }
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  #sppb-addon-wrapper-6011acb3-f984-4540-aa7e-e22ee099f986 {
+								  }
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									.sppb-addon-title {
+								  }</style><style type="text/css">
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									.sppb-empty-space {
+									height: 20px;
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								</style>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-f7e87639-0f29-440f-aed0-30942735eeb1">
+														<div
+															id="column-id-f7e87639-0f29-440f-aed0-30942735eeb1"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																	class="sppb-addon-wrapper addon-root-raw-html">
+																	<div
+																		id="sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-raw-html">
+																			<div class="sppb-addon-content">
+																				<ul class="sb-social">
+																					<li>
+																						<a href="https://www.instagram.com/caffeboniniabidjan?igsh=MW9ldTBxZjZ1N24ydw==" target="_blank"><i
+																								class="fab fa-instagram"></i></a>
+																					</li>
+																					<li>
+																						<a href="https://www.facebook.com/caffeboniniabidjan?mibextid=ZbWKwL" target="_blank"><i
+																								class="fab fa-facebook-f"></i></a>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																		<style type="text/css">
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									box-shadow: 0 0 0 0 #ffffff;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  #sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d {
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sppb-addon-title {
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social {
+									display: flex;
+									justify-content: center;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li {
+									margin-right: 15px;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li:last-child {
+									margin-right: 0;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li
+									a {
+									transition: 0.3s ease-in-out;
+									font-size: 14px;
+									color: #212529;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li
+									a:hover {
+									color: var(--maincolor);
+								  }
+								</style>
+																	</div>
+																</div>
+																<div
+																	id="sppb-addon-wrapper-b84d0652-765f-4c87-a764-f0528098416c"
+																	class="sppb-addon-wrapper sppb-hidden-xl sppb-hidden-lg sppb-hidden-md addon-root-empty-space">
+																	<div
+																		id="sppb-addon-b84d0652-765f-4c87-a764-f0528098416c"
+																		class="clearfix">
+																		<div
+																			class="sppb-empty-space clearfix"></div>
+																		<style type="text/css">
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									box-shadow: 0 0 0 0 #ffffff;
+								  }
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  #sppb-addon-wrapper-b84d0652-765f-4c87-a764-f0528098416c {
+								  }
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									.sppb-addon-title {
+								  }</style><style type="text/css">
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									.sppb-empty-space {
+									height: 20px;
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								</style>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0">
+														<div
+															id="column-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-63e19b46-0546-4547-8433-4c5914b58f6d"
+																	class="sppb-addon-wrapper addon-root-text-block">
+																	<div
+																		id="sppb-addon-63e19b46-0546-4547-8433-4c5914b58f6d"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-text-block">
+																			<div class="sppb-addon-content">
+																				<p>
+																					D&eacute;velopp&eacute; par <a href="https://servicesgeneraux.ci/" target="_blank">SGCI</a>
+																				</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+      </div>
+    </div>
+
+      </div>
+    </div>
+<!-- Modal menu stade-->
+
+<!-- Modal menu stade-->
+<div class="modal fade" id="stadeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Menu</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+			<!-- Emplacement pour l'image -->
+			<div id="lienImage"></div>
+        </div>
+      </div>
+   </div>
+</div>
+
+  <!-- Modal restaurant-->
+  <div class="modal fade" id="restaurantModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-center fs-5" id="exampleModalLabel">Menu</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+		
+		  
+        <div class="modal-body">
+			<img src="{{ menu_restaurants.image.url }} "
+        </div>
+		
+      </div>
+    </div>
+</div>
+
+    <!-- Go to top -->
+    <a href="#" class="sp-scroll-up" aria-label="Scroll Up"
+      ><span class="fas fa-angle-up" aria-hidden="true"></span
+    ></a>
+    <script
+      data-cfasync="false"
+      src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script>
+        $(document).ready(function(){
+            $('.auStade').on('change', function(){
+                $('.formAuStade').toggleClass('d-none');
+            });
+        });
+    </script>
+
+<script>
+   function voirModal(sel) {
+    var id = sel.value;
+	console.log('Selected value:', sel.value);
+    $.ajax({
+        url: '{% url "get_menu_image" %}',
+        data: {
+            'id': id,
+        },
+        type: "GET",
+        dataType: 'json',
+        success: function (response) {
+     
+
+			console.log(response);
+			var output = `<img src="${response.menu.image_url}" alt="Stade Image">`;
+            $("#lienImage").html(output);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+
+
+    const myModal = new bootstrap.Modal('#stadeModal', {
+        keyboard: false
+    });
+
+    var modal = document.getElementById('stadeModal');
+    myModal.show();
+}
+
+</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>

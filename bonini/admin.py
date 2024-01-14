@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import inscription,codepromo,lemenu,typemenu,stade,commande,commande_detail,niveaumatch,listematch,commende_match
+from .models import Location,menu_stade,menu_restaurant
 from mptt.admin import TreeRelatedFieldListFilter
 from mptt.admin import DraggableMPTTAdmin
 from django.utils.safestring import mark_safe
@@ -53,6 +54,17 @@ class listematchchadmin(admin.ModelAdmin):
 class lematchadmin(admin.ModelAdmin):
     list_display = ('listematch','commande','Stade','entree','porte','zone','escalier','bloc','rang','siege')
 
+class Locationadmin(admin.ModelAdmin):
+    list_display = ('inscription','latitude','longitude','ref')
+
+class menu_stadeadmin(admin.ModelAdmin):
+    list_display = ('stade','libelle','estactif','image')
+class menu_restaurantadmin(admin.ModelAdmin):
+    list_display = ('libelle','estactif','image')
+
+admin.site.register(menu_restaurant,menu_restaurantadmin)
+admin.site.register(menu_stade,menu_stadeadmin)
+admin.site.register(Location,Locationadmin)
 admin.site.register(commende_match,lematchadmin)
 admin.site.register(listematch,listematchchadmin)
 admin.site.register(niveaumatch,niveaumatchadmin)

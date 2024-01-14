@@ -1,0 +1,770 @@
+{% load static %}
+{% load mptt_tags %}
+<!DOCTYPE html>
+<html lang="fr-FR">
+	<head>
+		<meta
+		  name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta charset="utf-8" />
+		<title>Suivi des commandes</title>
+		<link href="{% static 'assets/images/logo bonini.jpg' %}" rel="icon" />
+		<link
+		  href="{% static 'assets/css/font-awesome-5.min.css' %}"
+		  rel="stylesheet"
+		/>
+		<link
+		  href="{% static 'assets/css/font-awesome-v4-shims.css' %}"
+		  rel="stylesheet"
+		/>
+		<link
+		  href="{% static 'assets/css/animate.min.css' %}"
+		  rel="stylesheet"
+		/>
+		<link
+		  href="{% static 'assets/css/sppagebuilder.css' %}"
+		  rel="stylesheet"
+		/>
+		<link href="{% static 'assets/css/magnific-popup.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/template.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/presets/preset9.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/hikashop.css' %}" rel="stylesheet" />
+		<link href="{% static 'assets/css/custom.css' %}" rel="stylesheet" />
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		{% comment %} <script src="{% static 'assets/js/jquery.min.js' %}"></script> {% endcomment %}
+		<script src="{% static 'assets/js/common.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.parallax.js' %}"></script>
+		<script
+		  src="{% static 'assets/js/sppagebuilder.js' %}"
+		  defer
+		></script>
+		<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static 'assets/js/gmap.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDthauU5YfmeMnFEf43yycLawCV5QO53XI&libraries=places"></script>
+	
+		<meta property="article:author" content="Bonini" />
+		<meta property="og:locale" content="fr-FR" />
+		<meta property="og:title" content="Suivi des commandes" />
+		<meta property="og:type" content="website" />
+	  </head>
+  <body
+    class="site helix-ultimate hu com_hikashop com-hikashop view-checkout layout-show task-step itemid-158 en-gb ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right"
+  >
+    <div class="body-wrapper">
+      <div class="body-innerwrapper">
+        <header id="sp-header">
+            <div class="container">
+              <div class="container-inner">
+                <div class="row justify-content-center">
+                  <div id="sp-logo" class="col-4 col-sm-4 col-md-4 col-lg-3 col-xxl-3 col-xl-3">
+                    <div class="logo py-3">
+                      <a href="#">
+                        <img
+                          class="logo-image mx-auto"
+                          src="{% static 'assets/images/logo bonini.jpg' %}"
+                          alt="Bonini" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </header>
+        <section id="sp-section-2">
+          <div class="row">
+            <div id="sp-title" class="bg-menu col-lg-12">
+              <div class="sp-column">
+                <div class="sp-page-title">
+                  <div class="container">
+                    <h2 class="sp-page-title-heading">Suivi des commandes</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="sp-main-body">
+          <div class="container">
+            <div class="container-inner">
+              <div class="row">
+                <main id="sp-component" class="col-lg-12">
+                  <div class="sp-column">
+                    <div id="system-message-container" aria-live="polite"></div>
+					<div class="row">
+						<div class="col-md-3">
+							<form method="post" action="{% url 'enregistrer_coordonnees' %}" onsubmit="return getLocation();">
+							{% csrf_token %}
+								<input type="hidden" id="search-input" placeholder="Rechercher un endroit">
+								<div id="map" style="height: 400px;"></div>
+								<input type="hidden" id="latitude" name="latitude">
+								<input type="hidden" id="longitude" name="longitude">
+								{% comment %} <input type="submit" class="sppb-btn ps-4 mt-2 w-100 justify-content-center sppb-btn-primary hikabtn-success" value="Obtenir ma position"> {% endcomment %}
+							</form>
+						</div>
+						<div class="col-md-9">
+							<form action="{% url 'commander' %}" method="post" id="hikashop_checkout_form" name="" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div id="hikashop_checkout" data-checkout-step="1" class="hikashop_checkout_page hikashop_checkout_page_step1">
+								  <div id="hikashop_checkout_cart_1_5" data-checkout-step="1" data-checkout-pos="5" class="hikashop_checkout_cart">
+									<div class="hikashop_checkout_loading_elem"></div>
+									<div class="hikashop_checkout_loading_spinner"></div>
+									<!-- TOP EXTRA DATA -->
+									<!-- EO TOP EXTRA DATA -->
+									<div class="table-responsive">
+										<table class="table table-striped table-hover" width="100%">
+											<thead>
+											<tr>
+												<!-- IMAGE HEADER -->
+												<th
+												id="hikashop_cart_product_image_title"
+												class="hikashop_cart_product_image_title hikashop_cart_title"
+												>
+												Client
+												</th>
+												<!-- EO IMAGE HEADER -->
+												<!-- NAME HEADER -->
+												<th
+												id="hikashop_cart_product_name_title"
+												class="hikashop_cart_product_name_title hikashop_cart_title"
+												>
+												Code promo
+												</th>
+												<!-- EO NAME HEADER -->
+												<!-- CUSTOM PRODUCT FIELDS HEADER -->
+			
+												<!-- EO CUSTOM PRODUCT FIELDS HEADER -->
+												<!-- UNIT PRICE HEADER -->
+												<th
+												id="hikashop_cart_product_price_title"
+												class="hikashop_cart_product_price_title hikashop_cart_title"
+												>
+												R&eacute;f&eacute;rence
+												</th>
+												<!-- EO UNIT PRICE HEADER -->
+												<!-- QUANTITY HEADER -->
+												<th
+												id="hikashop_cart_product_quantity_title"
+												class="hikashop_cart_product_quantity_title hikashop_cart_title"
+												>
+												Quantit&eacute;
+												</th>
+												<!-- EO QUANTITY HEADER -->
+												<!-- TOTAL PRICE HEADER -->
+												<th
+												id="hikashop_cart_product_total_title"
+												class="hikashop_cart_product_total_title hikashop_cart_title"
+												>
+												Total
+												</th>
+												<th
+												class="hikashop_cart_product_total_title hikashop_cart_title"
+												>
+												Nombre d'articles
+												</th>
+												<th
+												class="hikashop_cart_product_total_title hikashop_cart_title"
+												>
+												Est factur&eacute;
+												</th>
+												<th
+												class="hikashop_cart_product_total_title hikashop_cart_title"
+												>
+												&Eacute;tat
+												</th>
+												<th
+												class="hikashop_cart_product_total_title hikashop_cart_title"
+												>
+												Date
+												</th>
+												<th
+												class="hikashop_cart_product_total_title hikashop_cart_title"
+												>
+												Adresse de livraison
+												</th>
+												<!-- EO TOTAL PRICE HEADER -->
+											</tr>
+											</thead>
+											<tbody id="list_article">
+												{% include "commande_item.html" %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							  </div>
+							</form>
+						</div>
+					</div>
+                  </div>
+                </main>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer id="sp-footer">
+			<div class="row">
+				<div id="sp-footer1" class="col-lg-12">
+					<div class="sp-column">
+						<div class="sp-module">
+							<div class="sp-module-content">
+								<div
+									class="mod-sppagebuilder sp-page-builder"
+									data-module_id="124">
+									<div class="page-content">
+										<section
+											id="section-id-104e2e5e-eea1-4284-b734-116a98b8f1f9"
+											class="sppb-section sppb-section-content-center">
+											<div class="sppb-row-container">
+												<div class="sppb-row sppb-align-center">
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6">
+														<div
+															id="column-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																	class="sppb-addon-wrapper addon-root-image">
+																	<div
+																		id="sppb-addon-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-single-image">
+																			<div class="sppb-addon-content">
+																				<div
+																					class="sppb-addon-single-image-container">
+																					<a href="#"><img
+																							class="sppb-img-responsive logo-image"
+																							src="{% static 'assets/images/logo bonini.jpg' %}"
+																							alt="Image"
+																							title /></a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div
+																	id="sppb-addon-wrapper-6011acb3-f984-4540-aa7e-e22ee099f986"
+																	class="sppb-addon-wrapper sppb-hidden-xl sppb-hidden-lg sppb-hidden-md addon-root-empty-space">
+																	<div
+																		id="sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986"
+																		class="clearfix">
+																		<div
+																			class="sppb-empty-space clearfix"></div>
+																		<style type="text/css">
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									box-shadow: 0 0 0 0 #ffffff;
+								  }
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+									}
+								  }
+								  #sppb-addon-wrapper-6011acb3-f984-4540-aa7e-e22ee099f986 {
+								  }
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									.sppb-addon-title {
+								  }</style><style type="text/css">
+								  #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									.sppb-empty-space {
+									height: 20px;
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+									  .sppb-empty-space {
+									}
+								  }
+								</style>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-f7e87639-0f29-440f-aed0-30942735eeb1">
+														<div
+															id="column-id-f7e87639-0f29-440f-aed0-30942735eeb1"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																	class="sppb-addon-wrapper addon-root-raw-html">
+																	<div
+																		id="sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-raw-html">
+																			<div class="sppb-addon-content">
+																				<ul class="sb-social">
+																					<li>
+																						<a href="https://www.instagram.com/caffeboniniabidjan?igsh=MW9ldTBxZjZ1N24ydw==" target="_blank"><i
+																								class="fab fa-instagram"></i></a>
+																					</li>
+																					<li>
+																						<a href="https://www.facebook.com/caffeboniniabidjan?mibextid=ZbWKwL" target="_blank"><i
+																								class="fab fa-facebook-f"></i></a>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																		<style type="text/css">
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									box-shadow: 0 0 0 0 #ffffff;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+									}
+								  }
+								  #sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d {
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sppb-addon-title {
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social {
+									display: flex;
+									justify-content: center;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li {
+									margin-right: 15px;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li:last-child {
+									margin-right: 0;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li
+									a {
+									transition: 0.3s ease-in-out;
+									font-size: 14px;
+									color: #212529;
+								  }
+								  #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+									.sb-social
+									li
+									a:hover {
+									color: var(--maincolor);
+								  }
+								</style>
+																	</div>
+																</div>
+																<div
+																	id="sppb-addon-wrapper-b84d0652-765f-4c87-a764-f0528098416c"
+																	class="sppb-addon-wrapper sppb-hidden-xl sppb-hidden-lg sppb-hidden-md addon-root-empty-space">
+																	<div
+																		id="sppb-addon-b84d0652-765f-4c87-a764-f0528098416c"
+																		class="clearfix">
+																		<div
+																			class="sppb-empty-space clearfix"></div>
+																		<style type="text/css">
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									box-shadow: 0 0 0 0 #ffffff;
+								  }
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+									}
+								  }
+								  #sppb-addon-wrapper-b84d0652-765f-4c87-a764-f0528098416c {
+								  }
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									.sppb-addon-title {
+								  }</style><style type="text/css">
+								  #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									.sppb-empty-space {
+									height: 20px;
+								  }
+								  @media (max-width: 1199.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 991.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 767.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								  @media (max-width: 575.98px) {
+									#sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+									  .sppb-empty-space {
+									}
+								  }
+								</style>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="sppb-row-column"
+														id="column-wrap-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0">
+														<div
+															id="column-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
+															class="sppb-column">
+															<div class="sppb-column-addons">
+																<div
+																	id="sppb-addon-wrapper-63e19b46-0546-4547-8433-4c5914b58f6d"
+																	class="sppb-addon-wrapper addon-root-text-block">
+																	<div
+																		id="sppb-addon-63e19b46-0546-4547-8433-4c5914b58f6d"
+																		class="clearfix">
+																		<div
+																			class="sppb-addon sppb-addon-text-block">
+																			<div class="sppb-addon-content">
+																				<p>
+																					D&eacute;velopp&eacute; par <a href="https://servicesgeneraux.ci/" target="_blank">SGCI</a>
+																				</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+      </div>
+    </div>
+
+    <!-- Go to top -->
+    <a
+      href="#"
+      class="sp-scroll-up"
+      aria-label="HELIX_ULTIMATE_SCROLL_UP_ARIA_LABEL"
+      ><span class="fas fa-angle-up" aria-hidden="true"></span
+    ></a>
+
+	{% comment %} <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> {% endcomment %}
+    {% comment %} <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script> {% endcomment %}
+    {% comment %} <script src="{% static 'assets/js/common.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.parallax.js' %}"></script>
+    <script src="{% static 'assets/js/sppagebuilder.js' %}" defer></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/gmap.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script> {% endcomment %}
+
+	<script>
+		function augmenter(articleId,nomArticle,prix,imageUrl,diminuer){
+			$.ajax({
+				url: '{% url "updateCart" %}',
+				data: {
+					'id': articleId,
+					'nomArticle': nomArticle,
+					'prix': prix,
+					'imageUrl': imageUrl,
+					'diminuer': diminuer,
+				},
+				success: function(response){
+					output = '';
+					//montantTotal = response.total_general + " FCFA";
+
+					x = response;
+					console.log("Succès");
+					
+					//$('#list_article').remove();
+
+					/*for (let key in x) {
+						
+						if (x.hasOwnProperty(key)) {
+							let articleData = x[key];
+							output += `
+							<tr class="row0">
+								<!-- IMAGE -->
+								<td data-title="Image" class="hikashop_cart_product_image_value">
+									<div class="hikashop_cart_product_image_thumb">
+										<img class="hikashop_product_checkout_cart_image" src="${articleData.imageUrl}"/>
+									</div>
+								</td>
+								<!-- EO IMAGE -->
+								<!-- NAME -->
+								<td data-title="Nom" class="hikashop_cart_product_name_value">
+									<p class="hikashop_cart_product_name">
+										<a class="hikashop_no_print" href="#">${articleData.nomArticle} </a>
+									</p>
+								</td>
+function augmenter(articleId,nomArticle,prix,imageUrl,diminuer){
+			$.ajax({
+				url: '{% url "updateCart" %}',
+				data: {
+					'id': articleId,
+					'nomArticle': nomArticle,
+					'prix': prix,
+					'imageUrl': imageUrl,
+					'diminuer': diminuer,
+				},
+				success: function(response){
+					output = '';
+					//montantTotal = response.total_general + " FCFA";
+
+					x = response;
+					console.log("Succès");
+					
+					//$('#list_article').remove();
+
+					/*for (let key in x) {
+						
+						if (x.hasOwnProperty(key)) {
+							let articleData = x[key];
+							output += `
+							<tr class="row0">
+								<!-- IMAGE -->
+								<td data-title="Image" class="hikashop_cart_product_image_value">
+									<div class="hikashop_cart_product_image_thumb">
+										<img class="hikashop_product_checkout_cart_image" src="${articleData.imageUrl}"/>
+									</div>
+								</td>
+								<!-- EO IMAGE -->
+								<!-- NAME -->
+								<td data-title="Nom" class="hikashop_cart_product_name_value">
+									<p class="hikashop_cart_product_name">
+										<a class="hikashop_no_print" href="#">${articleData.nomArticle} </a>
+									</p>
+								</td>
+class="hikashop_product_quantity_change_div_minus_default">
+												<button type="button" onclick='augmenter(${key},"${articleData.nomArticle}","${articleData.prix}","${articleData.imageUrl}", "true")' class="p-1 hikashop_product_quantity_field_change_plus hikashop_product_quantity_field_change sppb-btn sppb-btn-primary">&ndash;</button>
+											</div>
+										</div>
+									</div>
+									<div class="hikashop_cart_product_quantity_refresh">
+										<a class="hikashop_no_print" href="#" title="Refresh">
+											<i class="fa fa-sync"></i>
+										</a>
+									</div>
+									<div class="hikashop_cart_product_quantity_delete">
+										<a class="hikashop_no_print" href="#" title="Delete">
+											<i class="fa fa-times-circle"></i>
+										</a>
+									</div>
+								</td>
+								<!-- EO QUANTITY -->
+								<!-- TOTAL PRICE -->
+								<td data-title="Total price" class="hikashop_cart_product_total_value">
+									<span class="hikashop_product_price_full">
+										<span class="hikashop_product_price_0">${articleData.total} FCFA</span>
+									</span>
+								</td>
+								<!-- EO TOTAL PRICE -->
+							</tr>`;
+						}
+					}*/
+					
+					/*$('#montant_general').html(montantTotal);
+					$('#sous_montant').html(montantTotal);
+					
+					//$('#list_article').empty();
+					*/
+$('#list_article').html(response);
+
+				},
+				error: function(error) {
+					console.log('Une erreur', error.responseText);
+				}
+			});
+		}
+
+
+		function removeArticle(documentId) {
+			$.ajax({
+				url: '{% url "removeFromCart" %}',
+				data: {
+					'id': documentId,
+				},
+				success: function(response) {
+					$('#list_article').html(response);
+				},
+				error: function(error) {
+					console.log('Une erreur s\'est produite lors de la suppression du document.');
+				}
+			});
+		}
+		
+		function donneeStade(sel,next_step) {
+			var id = sel.value;
+			console.log("ID:",next_step);
+			var next_zone = document.getElementById(next_step);
+
+			$.ajax({
+				url: ' {% url "recupererDonnesStades" %} ',
+				data: {
+					'id': id,
+				},
+				type: "POST",
+				dataType: 'json',
+				success: function(response) {
+					output = '';
+
+					x = response.data;
+					console.log("Data : ",x);
+					
+					next_zone.innerHTML ="";
+					
+					var option = document.createElement("option");
+
+					option.value = -1;
+					option.text = "Sélectionnez un élément";
+					next_zone.appendChild(option);
+
+					for(i=0; i<x.length;i++){
+						var option = document.createElement("option");
+						
+						option.value = x[i].id;
+						option.text = x[i].name;
+						next_zone.appendChild(option);
+					}
+				},
+				error: function(error) {
+					console.log('Une erreur', error);
+				}
+			});
+		}
+
+	</script>
+	<script>
+		var x = document.getElementById("latitude");
+		var y = document.getElementById("longitude");
+		var map;
+
+			function initMap() {
+				var map = new google.maps.Map(document.getElementById('map'), {
+						center: {lat: -34.397, lng: 150.644},
+						zoom: 8
+					});
+
+					var marker = new google.maps.Marker({
+						map: map,
+						position: map.getCenter(),
+						draggable: true
+					});
+
+					google.maps.event.addListener(marker, 'dragend', function(event) {
+						document.getElementById('latitude').value = event.latLng.lat();
+						document.getElementById('longitude').value = event.latLng.lng();
+					});
+
+					google.maps.event.addListener(map, 'click', function(event) {
+						marker.setPosition(event.latLng);
+						document.getElementById('latitude').value = event.latLng.lat();
+						document.getElementById('longitude').value = event.latLng.lng();
+			});
+		}
+
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition, showError);
+				return false; // Bloque la soumission du formulaire avant la récupération de la position
+			} else {
+				x.value = '';
+				y.value = '';
+				alert("La géolocalisation n'est pas supportée par ce navigateur.");
+				return false; // Empêche la soumission du formulaire si la géolocalisation n'est pas prise en charge
+			}
+		}
+	
+		function showPosition(position) {
+			x.value = position.coords.latitude;
+			y.value = position.coords.longitude;
+	
+			// Permet la soumission du formulaire après la récupération de la position
+			document.getElementById("latitude").form.submit();
+		}
+	
+		function showError(error) {
+			x.value = '';
+			y.value = '';
+			switch (error.code) {
+				case error.PERMISSION_DENIED:
+					alert("L'utilisateur a refusé la demande de géolocalisation.");
+					break;
+				case error.POSITION_UNAVAILABLE:
+					alert("L'emplacement de l'utilisateur n'est pas disponible.");
+					break;
+				case error.TIMEOUT:
+					alert("La demande de géolocalisation de l'utilisateur a expiré.");
+					break;
+				case error.UNKNOWN_ERROR:
+					alert("Une erreur inconnue s'est produite lors de la demande de géolocalisation.");
+					break;
+			}
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDthauU5YfmeMnFEf43yycLawCV5QO53XI&libraries=places&callback=initMap"></script>
+  </body>
+
+</html>

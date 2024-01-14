@@ -37,7 +37,7 @@
 
     <meta property="article:author" content="Bonini" />
     <meta property="og:locale" content="fr-FR" />
-    <meta property="og:title" content="Formulaire d'inscription" />
+    <meta property="og:title" content="Menu du restaurant" />
     <meta property="og:type" content="website" />
   </head>
   <body
@@ -193,7 +193,7 @@
                     <div>
                       <div>
                         <div class="sppb-addon-content">
-                          <p class="mb-5">
+                          <p class="text-promo mb-5">
                             Votre code promo est :
                             <span class="text-primary"
                               ><strong>{{ promo_code }}</strong></span
@@ -206,15 +206,14 @@
                         >
                           <h2 class="sppb-addon-title">Liste des repas</h2>
                           <div class="sppb-addon-content">
-                            <button
-                              type="button"
-                              class="sppb-btn sppb-btn-primary sppb-btn-rounded ps-4"
-                            >
-                              <i class="fa fa-download" aria-hidden="true"></i>
-                              <span class="ms-2"
-                                >T&eacute;l&eacute;charger le menu</span
-                              >
-                            </button>
+                            
+                            <a href="{% url 'telecharger_menu' %}" target="_blank">
+                              <button type="button" class="sppb-btn sppb-btn-primary sppb-btn-rounded ps-4">
+                                <i class="fa fa-download" aria-hidden="true"></i>
+                                  <span class="ms-2">Télécharger le menu</span>
+                                </button>
+                              </a>
+                          
                           </div>
                         </div>
                       </div>
@@ -358,156 +357,302 @@
           </div>
         </section>
         <footer id="sp-footer">
-          <div class="row">
-            <div id="sp-footer1" class="col-lg-12">
-              <div class="sp-column">
-                <div class="sp-module">
-                  <div class="sp-module-content">
-                    <div
-                      class="mod-sppagebuilder sp-page-builder"
-                      data-module_id="124"
-                    >
-                      <div class="page-content">
-                        <section
-                          id="section-id-104e2e5e-eea1-4284-b734-116a98b8f1f9"
-                          class="sppb-section sppb-section-content-center"
-                        >
-                          <div class="sppb-row-container">
-                            <div class="sppb-row sppb-align-center">
-                              <div
-                                class="sppb-row-column"
-                                id="column-wrap-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
-                              >
-                                <div
-                                  id="column-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
-                                  class="sppb-column"
-                                >
-                                  <div class="sppb-column-addons">
-                                    <div
-                                      id="sppb-addon-wrapper-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
-                                      class="sppb-addon-wrapper addon-root-image"
-                                    >
-                                      <div
-                                        id="sppb-addon-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
-                                        class="clearfix"
-                                      >
-                                        <div
-                                          class="sppb-addon sppb-addon-single-image"
-                                        >
-                                          <div class="sppb-addon-content">
-                                            <div
-                                              class="sppb-addon-single-image-container"
-                                            >
-                                              <a href=""
-                                                ><img
-                                                  class="sppb-img-responsive logo-image"
-                                                  src="{% static 'assets/images/logo bonini.jpg' %}"
-                                                  alt="Image"
-                                                  title
-                                              /></a>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="sppb-row-column"
-                                id="column-wrap-id-f7e87639-0f29-440f-aed0-30942735eeb1"
-                              >
-                                <div
-                                  id="column-id-f7e87639-0f29-440f-aed0-30942735eeb1"
-                                  class="sppb-column"
-                                >
-                                  <div class="sppb-column-addons">
-                                    <div
-                                      id="sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d"
-                                      class="sppb-addon-wrapper addon-root-raw-html"
-                                    >
-                                      <div
-                                        id="sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d"
-                                        class="clearfix"
-                                      >
-                                        <div
-                                          class="sppb-addon sppb-addon-raw-html"
-                                        >
-                                          <div class="sppb-addon-content">
-                                            <ul class="sb-social">
-                                              <li>
-                                                <a
-                                                  href="https://www.instagram.com/caffeboniniabidjan?igsh=MW9ldTBxZjZ1N24ydw=="
-                                                  target="_blank"
-                                                  ><i
-                                                    class="fab fa-instagram"
-                                                  ></i
-                                                ></a>
-                                              </li>
-                                              <li>
-                                                <a
-                                                  href="https://www.facebook.com/caffeboniniabidjan?mibextid=ZbWKwL"
-                                                  target="_blank"
-                                                  ><i
-                                                    class="fab fa-facebook-f"
-                                                  ></i
-                                                ></a>
-                                              </li>
-                                            </ul>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="sppb-row-column"
-                                id="column-wrap-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
-                              >
-                                <div
-                                  id="column-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
-                                  class="sppb-column"
-                                >
-                                  <div class="sppb-column-addons">
-                                    <div
-                                      id="sppb-addon-wrapper-63e19b46-0546-4547-8433-4c5914b58f6d"
-                                      class="sppb-addon-wrapper addon-root-text-block"
-                                    >
-                                      <div
-                                        id="sppb-addon-63e19b46-0546-4547-8433-4c5914b58f6d"
-                                        class="clearfix"
-                                      >
-                                        <div
-                                          class="sppb-addon sppb-addon-text-block"
-                                        >
-                                          <div class="sppb-addon-content">
-                                            <p>
-                                              D&eacute;velopp&eacute; par
-                                              <a
-                                                href="https://servicesgeneraux.ci/"
-                                                target="_blank"
-                                                >SGCI</a
-                                              >
-                                            </p>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+					<div class="row">
+						<div id="sp-footer1" class="col-lg-12">
+							<div class="sp-column">
+								<div class="sp-module">
+									<div class="sp-module-content">
+										<div
+											class="mod-sppagebuilder sp-page-builder"
+											data-module_id="124">
+											<div class="page-content">
+												<section
+													id="section-id-104e2e5e-eea1-4284-b734-116a98b8f1f9"
+													class="sppb-section sppb-section-content-center">
+													<div class="sppb-row-container">
+														<div class="sppb-row sppb-align-center">
+															<div
+																class="sppb-row-column"
+																id="column-wrap-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6">
+																<div
+																	id="column-id-c3f0a2c5-692f-4f20-917d-35a1d2d6cae6"
+																	class="sppb-column">
+																	<div class="sppb-column-addons">
+																		<div
+																			id="sppb-addon-wrapper-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																			class="sppb-addon-wrapper addon-root-image">
+																			<div
+																				id="sppb-addon-26fbb501-40a0-4a76-a8f7-53dfa5ba9e92"
+																				class="clearfix">
+																				<div
+																					class="sppb-addon sppb-addon-single-image">
+																					<div class="sppb-addon-content">
+																						<div
+																							class="sppb-addon-single-image-container">
+																							<a href="#"><img
+																									class="sppb-img-responsive logo-image"
+																									src="{% static 'assets/images/logo bonini.jpg' %}"
+																									alt="Image"
+																									title /></a>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div
+																			id="sppb-addon-wrapper-6011acb3-f984-4540-aa7e-e22ee099f986"
+																			class="sppb-addon-wrapper sppb-hidden-xl sppb-hidden-lg sppb-hidden-md addon-root-empty-space">
+																			<div
+																				id="sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986"
+																				class="clearfix">
+																				<div
+																					class="sppb-empty-space clearfix"></div>
+																				<style type="text/css">
+                                          #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+                                            box-shadow: 0 0 0 0 #ffffff;
+                                          }
+                                          #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+                                          }
+                                          @media (max-width: 1199.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+                                            }
+                                          }
+                                          @media (max-width: 991.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+                                            }
+                                          }
+                                          @media (max-width: 767.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+                                            }
+                                          }
+                                          @media (max-width: 575.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986 {
+                                            }
+                                          }
+                                          #sppb-addon-wrapper-6011acb3-f984-4540-aa7e-e22ee099f986 {
+                                          }
+                                          #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+                                            .sppb-addon-title {
+                                          }</style><style type="text/css">
+                                          #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+                                            .sppb-empty-space {
+                                            height: 20px;
+                                          }
+                                          @media (max-width: 1199.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                          @media (max-width: 991.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                          @media (max-width: 767.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                          @media (max-width: 575.98px) {
+                                            #sppb-addon-6011acb3-f984-4540-aa7e-e22ee099f986
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                        </style>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div
+																class="sppb-row-column"
+																id="column-wrap-id-f7e87639-0f29-440f-aed0-30942735eeb1">
+																<div
+																	id="column-id-f7e87639-0f29-440f-aed0-30942735eeb1"
+																	class="sppb-column">
+																	<div class="sppb-column-addons">
+																		<div
+																			id="sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																			class="sppb-addon-wrapper addon-root-raw-html">
+																			<div
+																				id="sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d"
+																				class="clearfix">
+																				<div
+																					class="sppb-addon sppb-addon-raw-html">
+																					<div class="sppb-addon-content">
+																						<ul class="sb-social">
+																							<li>
+																								<a href="https://www.instagram.com/caffeboniniabidjan?igsh=MW9ldTBxZjZ1N24ydw==" target="_blank"><i
+																										class="fab fa-instagram"></i></a>
+																							</li>
+																							<li>
+																								<a href="https://www.facebook.com/caffeboniniabidjan?mibextid=ZbWKwL" target="_blank"><i
+																										class="fab fa-facebook-f"></i></a>
+																							</li>
+																						</ul>
+																					</div>
+																				</div>
+																				<style type="text/css">
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+                                            box-shadow: 0 0 0 0 #ffffff;
+                                          }
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+                                          }
+                                          @media (max-width: 1199.98px) {
+                                            #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+                                            }
+                                          }
+                                          @media (max-width: 991.98px) {
+                                            #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+                                            }
+                                          }
+                                          @media (max-width: 767.98px) {
+                                            #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+                                            }
+                                          }
+                                          @media (max-width: 575.98px) {
+                                            #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d {
+                                            }
+                                          }
+                                          #sppb-addon-wrapper-518b64ae-aec0-4178-8d4c-8855f24f082d {
+                                          }
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+                                            .sppb-addon-title {
+                                          }
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+                                            .sb-social {
+                                            display: flex;
+                                            justify-content: center;
+                                          }
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+                                            .sb-social
+                                            li {
+                                            margin-right: 15px;
+                                          }
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+                                            .sb-social
+                                            li:last-child {
+                                            margin-right: 0;
+                                          }
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+                                            .sb-social
+                                            li
+                                            a {
+                                            transition: 0.3s ease-in-out;
+                                            font-size: 14px;
+                                            color: #212529;
+                                          }
+                                          #sppb-addon-518b64ae-aec0-4178-8d4c-8855f24f082d
+                                            .sb-social
+                                            li
+                                            a:hover {
+                                            color: var(--maincolor);
+                                          }
+                                        </style>
+																			</div>
+																		</div>
+																		<div
+																			id="sppb-addon-wrapper-b84d0652-765f-4c87-a764-f0528098416c"
+																			class="sppb-addon-wrapper sppb-hidden-xl sppb-hidden-lg sppb-hidden-md addon-root-empty-space">
+																			<div
+																				id="sppb-addon-b84d0652-765f-4c87-a764-f0528098416c"
+																				class="clearfix">
+																				<div
+																					class="sppb-empty-space clearfix"></div>
+																				<style type="text/css">
+                                          #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+                                            box-shadow: 0 0 0 0 #ffffff;
+                                          }
+                                          #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+                                          }
+                                          @media (max-width: 1199.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+                                            }
+                                          }
+                                          @media (max-width: 991.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+                                            }
+                                          }
+                                          @media (max-width: 767.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+                                            }
+                                          }
+                                          @media (max-width: 575.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c {
+                                            }
+                                          }
+                                          #sppb-addon-wrapper-b84d0652-765f-4c87-a764-f0528098416c {
+                                          }
+                                          #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+                                            .sppb-addon-title {
+                                          }</style><style type="text/css">
+                                          #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+                                            .sppb-empty-space {
+                                            height: 20px;
+                                          }
+                                          @media (max-width: 1199.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                          @media (max-width: 991.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                          @media (max-width: 767.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                          @media (max-width: 575.98px) {
+                                            #sppb-addon-b84d0652-765f-4c87-a764-f0528098416c
+                                              .sppb-empty-space {
+                                            }
+                                          }
+                                        </style>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div
+																class="sppb-row-column"
+																id="column-wrap-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0">
+																<div
+																	id="column-id-cab6ef60-5602-4c7f-af97-f0ba156c56e0"
+																	class="sppb-column">
+																	<div class="sppb-column-addons">
+																		<div
+																			id="sppb-addon-wrapper-63e19b46-0546-4547-8433-4c5914b58f6d"
+																			class="sppb-addon-wrapper addon-root-text-block">
+																			<div
+																				id="sppb-addon-63e19b46-0546-4547-8433-4c5914b58f6d"
+																				class="clearfix">
+																				<div
+																					class="sppb-addon sppb-addon-text-block">
+																					<div class="sppb-addon-content">
+																						<p>
+																							D&eacute;velopp&eacute; par <a href="https://servicesgeneraux.ci/" target="_blank">SGCI</a>
+																						</p>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
       </div>
     </div>
     <!-- Go to top -->

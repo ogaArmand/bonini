@@ -167,9 +167,30 @@ class commende_match(models.Model):
     siege = models.CharField(max_length=50)
     trouve_sur_place = models.BooleanField(default=False)
 
+class Location(models.Model):
+    inscription = models.ForeignKey(inscription, on_delete=models.CASCADE)
+    ref = models.CharField(max_length=15,null=True)
+    latitude = models.CharField(max_length=255)
+    longitude = models.CharField(max_length=255)
+
 
 # from django.contrib.gis.db import models
 
 # class PointOfInterest(models.Model):
 #     name = models.CharField(max_length=255)
 #     location = models.PointField()
+    
+class menu_stade(models.Model):
+    stade = models.ForeignKey(stade, on_delete=models.CASCADE)
+    libelle = models.CharField(max_length=255)
+    estactif = models.BooleanField(default=1)
+    image = models.ImageField(upload_to='images/')
+    def __str__(self) -> str:
+        return self.libelle
+    
+class menu_restaurant(models.Model):
+    libelle = models.CharField(max_length=255)
+    estactif = models.BooleanField(default=1)
+    image = models.ImageField(upload_to='images/')
+    def __str__(self) -> str:
+        return self.libelle
