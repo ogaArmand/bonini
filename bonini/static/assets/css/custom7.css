@@ -976,9 +976,9 @@ body {
         background-color: RGBA(0, 0, 0, 0);
         border-radius: 0px;
       }
-      /* .logo-image {
+      .logo-image {
         height: 30px;
-      } */
+      }
       .logo-image-phone {
         height: 30px;
       }

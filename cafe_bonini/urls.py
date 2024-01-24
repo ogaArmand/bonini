@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from bonini.views import menu,formulaire,index,addToCart,ouvrirpanier,removeFromCart,recupererDonnesStades,commander,updateCart,telecharger_menu
-from bonini.views import enregistrer_coordonnees,suivi_commande,localiser_sur_google_maps
+from bonini.views import enregistrer_coordonnees,suivi_commande,localiser_sur_google_maps,MyCampaignView
 from bonini.views import telecharger_menu,menu_stade_restaurant,get_menu_image
 from django.conf import settings
 from django.conf.urls.static import static
@@ -38,8 +38,9 @@ urlpatterns = [
     path('telecharger_menu', telecharger_menu, name='telecharger_menu'),
     path('enregistrer_coordonnees', enregistrer_coordonnees, name='enregistrer_coordonnees'),
     path('suivi_commande', suivi_commande, name='suivi_commande'),
-    path('menu_stade_restaurant', menu_stade_restaurant, name='menu_stade_restaurant'),
+    path('menu_stade_restaurant/<str:promo_code>', menu_stade_restaurant, name='menu_stade_restaurant'),
     path('localiser_sur_google_maps/<str:ref>/', localiser_sur_google_maps, name='localiser_sur_google_maps'),
+    # path('my-campaign/', MyCampaignView.as_view(), name='my_campaign_view'),
 ]
 
 if settings.DEBUG:

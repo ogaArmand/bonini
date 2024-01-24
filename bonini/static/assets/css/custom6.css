@@ -976,9 +976,9 @@ body {
         background-color: RGBA(0, 0, 0, 0);
         border-radius: 0px;
       }
-      /* .logo-image {
+      .logo-image {
         height: 30px;
-      } */
+      }
       .logo-image-phone {
         height: 30px;
       }
@@ -1426,9 +1426,8 @@ body .sppb-addon-optin-forms {
 }
 
 .sp-main-body {
-  background-image: url(../images/fond-landing.jpg);
+  background-image: url(../images/bg-landing.png);
   background-size: cover;
-  background-position: center center;
 }
 .hika_options label{
   font-weight: bold;

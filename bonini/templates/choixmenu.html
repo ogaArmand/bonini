@@ -92,7 +92,7 @@
           <div class="row">
             <main id="sp-component" class="col-lg-12">
                 <div class="sp-column">
-                    <div class="row vh-100 align-items-center">
+                    <div class="row mt-11 align-items-center">
                         <div class="row">
                             <section id="section-id-3eceb363-6937-443d-b395-91672ebe52be" class="sppb-section">
                                 <div class="sppb-row-container">
@@ -175,7 +175,7 @@
 																		<option value="-1">Sélectionnez un élément</option>
 																		
 																		{% recursetree stades %}
-																			<option value="{{ node.id }}">{{ node.id }} {{node.name}}</option>
+																			<option value="{{ node.id }}">{{node.name}}</option>
 																		{% endrecursetree %}
 															 		</select>
                                                                 </dd>
@@ -184,6 +184,7 @@
                                                         </div>
                                                     </div>
                                                     </div>
+													
                                                     <div
                                                     class="sppb-row-column"
                                                     id="column-wrap-id-f092d797-e611-4cdb-af4d-ed503be1c587"
@@ -232,11 +233,21 @@
                                                                         <h3
                                                                         class="sppb-addon-title sppb-feature-box-title sppb-media-heading"
                                                                         >
+																		
                                                                         <a
                                                                             href="#"
                                                                             >Restaurant</a
                                                                         >
+
                                                                         </h3>
+																		
+																		<p class="text-promo mb-5">
+																			Votre code promo est :
+																			<span class="text-primary"
+																			  ><strong>{{ promo_code }}</strong>
+																			</span>. Avec ce code, vous bénéficiez d'une reduction de
+																			20 % sur tous vos achats au restaurant CAFE BONINI.
+																		  </p>
 																		<div class="sppb-addon-text">
                                                                             <button data-bs-toggle="modal" data-bs-target="#restaurantModal" class="sppb-btn ps-4 sppb-btn-primary hikabtn-success hikabtn_checkout_next">Voir le menu du restaurant</button>
                                                             			</div>
@@ -259,7 +270,74 @@
                                 </div>
                                 </div>
                             </section>
+		
                         </div>
+						<div class="row">
+							
+							
+							<section id="section-id-96a080e0-03d6-4876-8e62-fe8f757e7d18" class="sppb-section mt-5">
+								<div class="sppb-row-container">
+									<h2 class="sppb-addon-title sppb-feature-box-title sppb-media-heading" style="color: white;">
+										
+											Gallérie du restaurant café bonini
+										
+									</h2>
+									
+									<div class="">
+										<div class="row">
+										
+											  
+											{% for gallerie in gallerie_img %}
+											  
+											
+											<!-- Image 1 -->
+											<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+												<div
+												id="sppb-addon-wrapper-7084508b-874b-46b6-8b5f-094902b98821"
+												class="sppb-addon-wrapper addon-root-image"
+												>
+													<div
+														id="sppb-addon-7084508b-874b-46b6-8b5f-094902b98821"
+														class="clearfix"
+													>
+														<div
+														class="sppb-addon sppb-addon-single-image sb-gallery-item"
+														>
+															<div class="sppb-addon-content">
+																<div
+																class="sppb-addon-single-image-container"
+																>
+																<div
+																	class="sppb-addon-image-overlay"
+																></div>
+																<a
+																	class="sppb-magnific-popup sppb-addon-image-overlay-icon"
+																	data-popup_type="image"
+																	data-mainclass="mfp-no-margins mfp-with-zoom"
+																	href="{{ gallerie.image.url }}"
+																	>+</a
+																><img
+																	class="sppb-img-responsive"
+																	src="{{ gallerie.image.url }}"
+																	alt="Image"
+																	title=""
+																/>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- /Image 1 -->
+											{% endfor %}
+										</div>
+										
+									</div>
+								</div>
+							</section>
+						</div>
+
+
                     </div>
                 </div>
             </main>

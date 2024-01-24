@@ -8,6 +8,16 @@ from location_field.models.plain import PlainLocationField
 from mptt.models import MPTTModel, TreeForeignKey
 # Create your models here.
 
+class stade(MPTTModel):
+    name = models.CharField(max_length=50)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
+
+    def __str__(self):
+        return self.name
+    
 class typemenu(models.Model):
     libelle = models.CharField(max_length=255)
     image = models.ImageField(upload_to='images/')
@@ -26,6 +36,7 @@ class lemenu(models.Model):
         return self.libelle
 
 class inscription(models.Model):
+    stade = models.ForeignKey(stade, on_delete=models.CASCADE,null=True)
     nom = models.CharField(max_length=255)
     prenom = models.CharField(max_length=255)
     email = models.CharField(max_length=50,null=True)
@@ -126,16 +137,6 @@ class facture(models.Model):
     etat = models.CharField(max_length=50) # en attente de paiement, payé, annulée 
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-
-class stade(MPTTModel):
-    name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-
-    class MPTTMeta:
-        order_insertion_by = ['name']
-
-    def __str__(self):
-        return self.name
     
 class niveaumatch(models.Model):
     niveau_match = models.CharField(max_length=255) # Phase éliminatoire, 8ème de finale, quart de fin, demie finale, match de classement, finale
@@ -192,5 +193,14 @@ class menu_restaurant(models.Model):
     libelle = models.CharField(max_length=255)
     estactif = models.BooleanField(default=1)
     image = models.ImageField(upload_to='images/')
+    def __str__(self) -> str:
+        return self.libelle
+    
+class Gallerie(models.Model):
+    libelle = models.CharField(max_length=255)
+    estactif = models.BooleanField(default=True)
+    estvideo = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='images/',null=True, blank=True)
+    video = models.FileField(upload_to='videos/',null=True, blank=True)
     def __str__(self) -> str:
         return self.libelle

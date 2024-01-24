@@ -1,6 +1,6 @@
 ﻿{% load static %}
 {% load countries %}
-
+{% load mptt_tags %}
 <!DOCTYPE html>
 <html lang="fr-FR">
 	<head>
@@ -270,6 +270,7 @@
 																																
 																															</div>
 																															
+																															
 																															<div
 																																class="sppb-form-group sppb-form-builder-field-2">
 																																<input
@@ -281,6 +282,20 @@
 																																	<span
 																																	class="sppb-form-builder-required">Champ obligatoire.</span>
 																															</div>
+
+																															<div class="sppb-form-group sppb-form-builder-field-2">
+																																
+																																<select name="stades" class="sppb-form-control" id ="stades" required >
+																																	<!-- <option value="-1">Sélectionnez un élément</option> -->
+																																	<option value="-1">Sélectionnez un stade</option>
+																																	
+																																	{% recursetree stades %}
+																																		<option value="{{ node.id }}">{{node.name}}</option>
+																																	{% endrecursetree %}
+																																 </select>
+																																
+																															</div>
+
 																															<div
 																																class="sppb-form-builder-btn sppb-text-center">
 																																<button

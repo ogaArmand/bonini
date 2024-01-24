@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from .models import inscription,lemenu,codepromo,stade,menu_stade,menu_restaurant,commande,commande_detail,commende_match,listematch,Location
+from .models import inscription,lemenu,codepromo,stade,menu_stade,menu_restaurant,commande,commande_detail,commende_match,listematch,Location,Gallerie
 from .forms import InscriptionForm
 from django.http import HttpResponse, JsonResponse, FileResponse
 # Create your views here.
@@ -13,6 +13,59 @@ from decimal import Decimal  # Import Decimal for accurate decimal arithmetic
 from django.template import loader
 import os
 import requests
+from django.views import View
+import requests
+import json
+
+
+class MyCampaignView(View):
+    def __init__(self, label, sender, contacts, content, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.label = label
+        self.sender = sender
+        self.contacts = contacts if isinstance(contacts, list) else [contacts]
+        self.content = content
+        print(label)
+        print(sender)
+        print(contacts)
+        print(content)
+   
+        # Construire le payload
+        payload = json.dumps({
+            "label": self.label,
+            "sender": self.sender,
+            "contacts": self.contacts,
+            "content": self.content
+        })
+
+        # Remplacer avec votre URL et token réels
+        url = "https://apis.letexto.com/v1/campaigns"
+        print(url)
+        headers = {
+            'Authorization': 'Bearer 34b7559f677cd31a16746a20ad1ae7',
+            'Content-Type': 'application/json'
+        }
+
+        # Effectuer la requête POST
+        response = requests.post(url, data=payload, headers=headers)
+        print(response.status_code)
+        print("Voici")
+        # Vérifier si la requête a réussi (code de statut 2xx)
+        if response.ok:
+            print(response.status_code)
+            print("OK III")
+            data = response.json()
+            return JsonResponse(data)
+        else:
+            # Gérer les erreurs
+            error_data = {
+                'error': f"Error: {response.status_code}",
+                'details': response.text
+            }
+            print(error_data)
+            print("OK")
+            return JsonResponse(error_data, status=500)
+
 
 def generate_reference(quantite,prixtotal,create_at):
         # Combinez les détails pertinents pour créer un code unique
@@ -68,47 +121,109 @@ def menu(request, inscription_id):
 def index(request):
     return render(request,'type-1.html')
 
+def api_envoi_sms(numero,msg):
+    url = "https://apis.letexto.com/v1/campaigns/sms"
+
+    payload = json.dumps({
+    "label": "Confirmation de l'inscription",
+    "sender": "CAFE BONINI",
+    "contacts": [
+        {
+        "age": "12",
+        "numero": numero,
+        "name": "Armand"
+        },
+    ],
+    "content": msg
+    })
+    headers = {
+    'Authorization': 'Bearer 8dfc810ed2da46aa2b4019b04dd52dfa',
+    'Content-Type': 'application/json'
+    }
+
+    response = requests.post(url, data=payload, headers=headers)
+    data = response.json()
+    print(json.dumps(data))
+
 @csrf_exempt
 def formulaire(request,qr):
-    form = InscriptionForm()
-    if request.method == 'POST':
-        # The form has been submitted
-        nom = request.POST.get('nom')
-        prenom = request.POST.get('prenom')
-        email = request.POST.get('email')
-        contact = request.POST.get('contact')
-        pays = request.POST.get('pays')
-        ville = request.POST.get('ville')
-
-        estinscriptparQR = 0
-        if qr == 1:
-            estinscriptparQR=1
-        # Perform validation if needed
-        try:
-            # Tentez de créer une nouvelle instance de 'inscription'
-            inscription_instance = inscription.objects.create(
-                nom=nom,
-                prenom=prenom,
-                email=email,
-                contact=contact,
-                pays=pays,
-                ville=ville,
-                estinscriptparQR=estinscriptparQR,
-                estclient=0
-            )
+   
+   if 'inscrit' in request.session:
+       promo_code = request.session['inscrit']
+       return redirect('menu_stade_restaurant',promo_code)
+   else:
+        
+        form = InscriptionForm()
+        stades = stade.objects._mptt_filter(level=0)
+        if request.method == 'POST':
+            # The form has been submitted
+            nom = request.POST.get('nom')
+            prenom = request.POST.get('prenom')
+            email = request.POST.get('email')
+            contact = request.POST.get('contact')
+            pays = request.POST.get('pays')
+            ville = request.POST.get('ville')
+            stade_id = request.POST.get('stades')
             
-            # L'enregistrement a été fait avec succès
-            return redirect('menu_stade_restaurant')
-        except Exception as e:
-            # Une exception s'est produite (par exemple, des erreurs de validation)
-            error_message = str(e)
-            return render(request, '404.html', {'error_message': error_message})
-    
-    context = {
+            # Obtenir la date d'aujourd'hui
+            aujourdhui = datetime.now()
+            date_expiration_str = '20240213' #aujourdhui + duree
+    # # Ajouter une durée de 30 jours
+        # duree = timedelta(days=30)
+            date_expiration = datetime.strptime(date_expiration_str, '%Y%m%d')
+    # Calculer la durée entre les deux dates
+            duree = date_expiration - aujourdhui
+            estinscriptparQR = 0
+            if qr == 1:
+                estinscriptparQR=1
+            # Perform validation if needed
+            try:
+                # Tentez de créer une nouvelle instance de 'inscription'
+                stade_instance = get_object_or_404(stade, pk=stade_id)
+                inscription_instance, created = inscription.objects.get_or_create(
+                    contact=contact,
+                    defaults={
+                        'stade': stade_instance,
+                        'nom': nom,
+                        'prenom': prenom,
+                        'email': email,
+                        'pays': pays,
+                        'ville': ville,
+                        'estinscriptparQR': estinscriptparQR,
+                        'estclient': 0
+                    }
+                )
+
+                if not created:
+                    # L'instance existe déjà, vous pouvez prendre des mesures en conséquence
+                    print("L'inscription avec ce contact existe déjà.")
+
+                promo_code = inscription_instance.generate_promo_code()
+                codepromo_instance = codepromo.objects.create(
+                    inscription=inscription_instance,
+                    code=promo_code.upper() ,
+                    estvalide=1,
+                    estutilise=0,
+                    dureevalidite=duree.days,
+                    dateexpiration=date_expiration,
+                    )
+                msg = "Salut "+ prenom +", Votre code promo est : "+ promo_code.upper() + ". Vous bénéficiez de -20% sur vos achats au CAFE BONINI. site : https://www.bonini.ci"
+                # L'enregistrement a été fait avec succès
+                # Envoi de sms
+                api_envoi_sms(contact,msg)
+                request.session['inscrit'] = promo_code.upper() 
+                return redirect('menu_stade_restaurant',promo_code.upper())
+            except Exception as e:
+                # Une exception s'est produite (par exemple, des erreurs de validation)
+                error_message = str(e)
+                return render(request, '404.html', {'error_message': error_message})
+            
+        context = {
         'qr':qr,
         'form': form,
-    }
-    return render(request, 'reservation.html',context)
+        'stades':stades,
+        }
+        return render(request, 'reservation.html',context)
 
 
 
@@ -116,7 +231,6 @@ def obtenir_liste_pays():
     return [(code, nom) for code, nom in list(countries)]
 
 @csrf_exempt
-
 def addToCart(request):
     cart_restaurant = {}
 
@@ -404,12 +518,17 @@ def localiser_sur_google_maps(request,ref):
     # Rediriger l'utilisateur vers le lien Google Maps
     return redirect(google_maps_link)
 
-def menu_stade_restaurant(request):
+def menu_stade_restaurant(request,promo_code):
     stades = stade.objects._mptt_filter(level=0)
     menu_restaurants = menu_restaurant.objects.get(estactif=1)
+    gallerie_img = Gallerie.objects.filter(estactif=1,estvideo=0)
+    gallerie_vid = Gallerie.objects.filter(estactif=1,estvideo=1)
     context ={
         'stades':stades,
         'menu_restaurants':menu_restaurants,
+        'gallerie_img':gallerie_img,
+        'gallerie_vid':gallerie_vid,
+        'promo_code':promo_code
     }
     return render(request,'choixmenu.html',context)
 
@@ -421,7 +540,7 @@ def get_menu_image(request):
         # Handle the case where 'id' is not a valid integer
         data = {'error': 'Invalid or missing id parameter.'}
         return JsonResponse(data)
-    print(id)
+    
     stades = get_object_or_404(stade, pk=id)
     menu = menu_stade.objects.get(stade=stades)
     
@@ -438,3 +557,17 @@ def get_menu_image(request):
     }
 
     return JsonResponse(data)
+
+def gallerie(request):
+    gallerie_img = Gallerie.objects.filter(estactif=1,estvideo=0)
+    gallerie_vid = Gallerie.objects.filter(estactif=1,estvideo=1)
+
+    context = {
+        'gallerie_img':gallerie_img,
+        'gallerie_vid':gallerie_vid,
+    }
+    return render(request,'',context)
+
+
+
+# api_envoi_sms('2250544169597','Test bonini.ci')

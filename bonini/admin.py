@@ -1,13 +1,13 @@
 from django.contrib import admin
 from .models import inscription,codepromo,lemenu,typemenu,stade,commande,commande_detail,niveaumatch,listematch,commende_match
-from .models import Location,menu_stade,menu_restaurant
+from .models import Location,menu_stade,menu_restaurant,Gallerie
 from mptt.admin import TreeRelatedFieldListFilter
 from mptt.admin import DraggableMPTTAdmin
 from django.utils.safestring import mark_safe
 # Register your models here.
 
 class clientadmin(admin.ModelAdmin):
-    list_display = ('nom','prenom','email','contact','pays','ville','estclient','estinscriptparQR','create_at','update_at')
+    list_display = ('stade','nom','prenom','email','contact','pays','ville','estclient','estinscriptparQR','create_at','update_at')
 
 
 class codepromoadmin(admin.ModelAdmin):
@@ -59,9 +59,14 @@ class Locationadmin(admin.ModelAdmin):
 
 class menu_stadeadmin(admin.ModelAdmin):
     list_display = ('stade','libelle','estactif','image')
+
 class menu_restaurantadmin(admin.ModelAdmin):
     list_display = ('libelle','estactif','image')
 
+class Gallerieadmin(admin.ModelAdmin):
+    list_display = ('libelle','estactif','estvideo','image','video')
+
+admin.site.register(Gallerie,Gallerieadmin)
 admin.site.register(menu_restaurant,menu_restaurantadmin)
 admin.site.register(menu_stade,menu_stadeadmin)
 admin.site.register(Location,Locationadmin)
