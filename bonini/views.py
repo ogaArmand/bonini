@@ -42,7 +42,7 @@ class MyCampaignView(View):
         url = "https://apis.letexto.com/v1/campaigns"
         print(url)
         headers = {
-            'Authorization': 'Bearer 34b7559f677cd31a16746a20ad1ae7',
+            'Authorization': 'Bearer votre token',
             'Content-Type': 'application/json'
         }
 
